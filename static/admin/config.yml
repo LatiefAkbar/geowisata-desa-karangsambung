@@ -1,8 +1,12 @@
 backend:
-  name: github
-  repo: LatiefAkbar/geowisata-desa-karangsambung # Ganti dengan username/nama-repository-github-anda
-  branch: main # Ganti ke master jika branch utama Anda bernama master
-  base_url: https://decapbridge.com
+  name: git-gateway
+  repo: LatiefAkbar/geowisata-desa-karangsambung
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/id-situs-anda-dari-decapbridge/pkce
+  auth_token_endpoint: /sites/id-situs-anda-dari-decapbridge/token
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
