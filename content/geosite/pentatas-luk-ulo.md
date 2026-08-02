@@ -10,7 +10,7 @@ fasilitas:
   - Area Parkir Pinggir Jalan
   - Pemandu Lokal (Geo-Guide)
 foto_utama: https://images.unsplash.com/photo-1511497584788-8767610419ea
-draft: true
+draft: false
 type: geosite
 ---
 
