@@ -1,35 +1,71 @@
 {{ define "main" }}
-<section class="max-w-7xl mx-auto px-6 py-12">
+<section class="max-w-6xl mx-auto px-6 py-14">
   
-  <!-- Header Katalog -->
-  <div class="text-center max-w-2xl mx-auto mb-12">
-    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Katalog Destinasi Geosite</h1>
-    <p class="text-slate-600 mt-3">Jelajahi situs-situs geologi penting di Karangsambung, dari batuan metamorf langka hingga singkapan lava purba.</p>
+  <!-- Header Section Editorial -->
+  <div class="border-b border-slate-200 pb-8 mb-12">
+    <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-800">Eksplorasi Lapangan</span>
+    <h1 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mt-1">Katalog Destinasi Geosite</h1>
+    <p class="text-slate-600 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
+      Inventarisasi situs-situs geologi penting di Karangsambung, menyingkap batuan metamorf langka, sedimen laut dalam, hingga struktur lava bantal purba.
+    </p>
   </div>
 
-  <!-- Grid Card Geosite -->
+  <!-- Grid Card Geosite (Clean Editorial) -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {{ range .Pages }}
-    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition group flex flex-col justify-between">
+    <article class="bg-white border border-slate-200 flex flex-col justify-between group">
       <div>
-        <div class="h-52 bg-slate-200 relative overflow-hidden">
-          <img src="{{ .Params.foto_utama }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-          <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">
+        <!-- Image Frame -->
+        <div class="aspect-[4/3] bg-slate-100 relative overflow-hidden">
+          {{ if .Params.foto_utama }}
+            <img src="{{ .Params.foto_utama }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          {{ else }}
+            <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs font-medium">
+              Foto Geosite Tidak Tersedia
+            </div>
+          {{ end }}
+
+          <!-- Badge Kategori Batuan -->
+          {{ if .Params.kategori_batuan }}
+          <span class="absolute top-0 left-0 bg-slate-900 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 border-b border-r border-slate-800">
             {{ .Params.kategori_batuan }}
           </span>
+          {{ end }}
         </div>
-        <div class="p-6">
-          <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition">{{ .Title }}</h2>
-          <p class="text-slate-600 text-sm mt-2 line-clamp-3">{{ .Summary }}</p>
+
+        <!-- Content -->
+        <div class="p-5 space-y-2">
+          <h2 class="font-serif text-lg font-bold text-slate-900 group-hover:text-emerald-900 transition-colors leading-snug">
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+          </h2>
+          <p class="text-slate-600 text-xs leading-relaxed line-clamp-3 pt-1">
+            {{ .Summary }}
+          </p>
         </div>
       </div>
-      <div class="px-6 pb-6 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-slate-500">
-        <span>📍 {{ .Params.aksesibilitas }}</span>
-        <a href="{{ .RelPermalink }}" class="text-emerald-600 font-bold group-hover:translate-x-1 transition">Selengkapnya &rarr;</a>
+
+      <!-- Footer Info Aksesibilitas & Link -->
+      <div class="p-5 pt-0 mt-2 flex items-center justify-between border-t border-slate-100 pt-4">
+        <span class="text-[11px] font-medium text-slate-500 flex items-center gap-1.5 truncate max-w-[160px]">
+          <svg class="w-3.5 h-3.5 text-emerald-800 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <span class="truncate">{{ .Params.aksesibilitas | default "Karangsambung" }}</span>
+        </span>
+
+        <a href="{{ .RelPermalink }}" class="text-xs font-bold text-emerald-900 hover:underline uppercase tracking-wider flex-shrink-0">
+          Selengkapnya &rarr;
+        </a>
       </div>
-    </div>
+    </article>
     {{ else }}
-    <p class="text-slate-500 italic col-span-3 text-center py-12">Belum ada data geosite yang ditambahkan.</p>
+    <!-- State Kosong -->
+    <div class="col-span-3 py-16 text-center border border-dashed border-slate-200 bg-slate-50/50">
+      <p class="text-slate-500 text-xs font-medium">Belum ada data geosite yang ditambahkan.</p>
+    </div>
     {{ end }}
   </div>
 

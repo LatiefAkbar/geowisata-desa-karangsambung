@@ -1,67 +1,102 @@
 {{ define "main" }}
-<article class="max-w-5xl mx-auto px-6 py-12">
+<article class="max-w-6xl mx-auto px-6 py-12">
   
-  <!-- Breadcrumb -->
-  <nav class="text-xs font-semibold text-slate-400 mb-6 flex items-center gap-2">
-    <a href="/" class="hover:text-emerald-600">Beranda</a>
+  <!-- Breadcrumb Minimalis -->
+  <nav class="text-xs font-semibold text-slate-400 mb-8 flex items-center gap-2">
+    <a href="/" class="hover:text-slate-900 transition">Beranda</a>
     <span>/</span>
-    <a href="/geo-heritage" class="hover:text-emerald-600">Katalog Batuan</a>
+    <a href="/geo-heritage" class="hover:text-slate-900 transition">Katalog Batuan</a>
     <span>/</span>
-    <span class="text-slate-700">{{ .Title }}</span>
+    <span class="text-slate-600 line-clamp-1">{{ .Title }}</span>
   </nav>
 
   <!-- Header Spesimen -->
-  <div class="mb-8">
-    <span class="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-      Batuan {{ .Params.jenis_batuan }}
-    </span>
-    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3">{{ .Title }}</h1>
-    <p class="text-slate-600 text-lg mt-2">{{ .Description }}</p>
-  </div>
-
-  <!-- Visual Makro Batuan -->
-  <div class="relative h-80 md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg mb-10 bg-slate-900">
-    <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" class="w-full h-full object-cover">
-  </div>
-
-  <!-- Grid Spesifikasi Mineral & Deskripsi -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-    
-    <!-- Sidebar Kiri: Kartu Identitas Spesimen -->
-    <div class="lg:col-span-1 space-y-6">
-      <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm space-y-4">
-        <h3 class="text-sm font-bold uppercase text-amber-400 tracking-wider border-b border-slate-800 pb-3">
-          Identitas Spesimen
-        </h3>
-        
-        <div>
-          <p class="text-xs text-slate-400">Kelompok Batuan</p>
-          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.jenis_batuan }}</p>
-        </div>
-
-        <div>
-          <p class="text-xs text-slate-400">Warna Khas</p>
-          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.warna | default "-" }}</p>
-        </div>
-
-        <div>
-          <p class="text-xs text-slate-400">Tekstur / Mineral Utama</p>
-          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.mineral_utama | default "-" }}</p>
-        </div>
-
-        <div>
-          <p class="text-xs text-slate-400">Lokasi Ditemukan di Karangsambung</p>
-          <p class="text-sm font-semibold text-emerald-400 mt-0.5">📍 {{ .Params.lokasi_penemuan | default "-" }}</p>
-        </div>
-      </div>
+  <header class="mb-10 space-y-3 border-b border-slate-200 pb-8">
+    <div class="flex items-center gap-2">
+      <span class="bg-slate-900 text-amber-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1">
+        Batuan {{ .Params.jenis_batuan }}
+      </span>
     </div>
 
-    <!-- Area Kanan: Penjelasan Ilmiah / Deskripsi Pembentukan -->
-    <div class="lg:col-span-2">
-      <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-emerald-600 text-slate-700 leading-relaxed space-y-4">
+    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+      {{ .Title }}
+    </h1>
+
+    {{ if .Description }}
+    <p class="text-slate-600 text-base md:text-lg leading-relaxed font-light pt-1">
+      {{ .Description }}
+    </p>
+    {{ end }}
+  </header>
+
+  <!-- Grid Utama: Identitas Spesimen (Kiri) & Konten Detail (Kanan) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+    
+    <!-- Sidebar Kiri: Kartu Identitas Spesimen (4/12 Kolom) -->
+    <aside class="lg:col-span-4 space-y-6">
+      
+      <!-- Visual Makro Batuan -->
+      {{ if .Params.foto_makro }}
+      <figure class="border border-slate-200 bg-slate-100 overflow-hidden">
+        <div class="aspect-[4/3] w-full">
+          <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+        </div>
+        {{ if .Params.caption_foto }}
+        <figcaption class="p-2 text-[11px] text-slate-500 italic text-center border-t border-slate-200 bg-white">
+          {{ .Params.caption_foto }}
+        </figcaption>
+        {{ end }}
+      </figure>
+      {{ end }}
+
+      <!-- Kartu Identitas Spesimen (Museum Display Panel) -->
+      <div class="bg-slate-900 text-slate-300 p-6 border border-slate-800 space-y-4">
+        <h3 class="font-serif text-xs font-bold uppercase text-amber-400 tracking-widest border-b border-slate-800 pb-3">
+          Spesifikasi Spesimen
+        </h3>
+
+        <div class="space-y-3 text-xs">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Kelompok Batuan</span>
+            <p class="font-medium text-slate-100 mt-0.5">{{ .Params.jenis_batuan }}</p>
+          </div>
+
+          <div class="border-t border-slate-800/60 pt-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Warna Khas</span>
+            <p class="font-medium text-slate-100 mt-0.5">{{ .Params.warna | default "-" }}</p>
+          </div>
+
+          <div class="border-t border-slate-800/60 pt-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Tekstur / Mineral Utama</span>
+            <p class="font-medium text-slate-100 mt-0.5 leading-relaxed">{{ .Params.mineral_utama | default "-" }}</p>
+          </div>
+
+          <div class="border-t border-slate-800/60 pt-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">Lokasi Singkapan</span>
+            <p class="font-semibold text-emerald-400 mt-1 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span>{{ .Params.lokasi_penemuan | default "Karangsambung" }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Kolom Kanan: Penjelasan Ilmiah / Deskripsi Pembentukan (8/12 Kolom) -->
+    <main class="lg:col-span-8">
+      <div class="prose prose-slate md:prose-lg max-w-none 
+                  prose-headings:font-serif prose-headings:font-bold prose-headings:text-slate-900 
+                  prose-p:text-slate-700 prose-p:leading-relaxed 
+                  prose-a:text-emerald-900 prose-a:font-semibold hover:prose-a:underline 
+                  prose-blockquote:border-l-2 prose-blockquote:border-emerald-800 prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-slate-600 
+                  prose-img:border prose-img:border-slate-200">
         {{ .Content }}
       </div>
-    </div>
+    </main>
 
   </div>
 
