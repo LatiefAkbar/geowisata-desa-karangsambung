@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Hg on Geowisata desa karangsambung</title>
+		<link>https://example.org/tags/hg/</link>
+		<description>Recent content in Hg on Geowisata desa karangsambung</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 02 Aug 2026 19:04:00 +0700</lastBuildDate>
+		
+			<atom:link href="https://example.org/tags/hg/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>hgf</title>
+				<link>https://example.org/artikel/2026-08-02-hgf/</link>
+				<pubDate>Sun, 02 Aug 2026 19:04:00 +0700</pubDate>
+				<guid>https://example.org/artikel/2026-08-02-hgf/</guid>
+				<description>&lt;p&gt;gfhfhfghfh&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

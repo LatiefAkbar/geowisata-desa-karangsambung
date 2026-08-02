@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://example.org/artikel/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2026-08-02T19:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/artikel/2026-08-02-bocah-sopan/</loc>
+    <lastmod>2026-08-02T19:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/</loc>
+    <lastmod>2026-08-02T19:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/oke/</loc>
+    <lastmod>2026-08-02T19:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/</loc>
+    <lastmod>2026-08-02T19:45:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/tags/hg/</loc>
+    <lastmod>2026-08-02T19:04:00+07:00</lastmod>
+  </url><url>
+    <loc>https://example.org/artikel/2026-08-02-hgf/</loc>
+    <lastmod>2026-08-02T19:04:00+07:00</lastmod>
   </url><url>
     <loc>https://example.org/tags/batuan-beku/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
@@ -20,9 +38,6 @@
     <loc>https://example.org/tags/geosite/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://example.org/tags/melange/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -33,9 +48,6 @@
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/destinasi/singkapan-diabas-gunung-parang/</loc>
-    <lastmod>2026-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/tags/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/tags/tektonik-lempeng/</loc>
