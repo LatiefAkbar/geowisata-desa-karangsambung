@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Destinasis on Geowisata desa karangsambung</title>
-		<link>http://localhost:1313/destinasi/</link>
+		<link>https://example.org/destinasi/</link>
 		<description>Recent content in Destinasis on Geowisata desa karangsambung</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sun, 02 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/destinasi/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://example.org/destinasi/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Singkapan Diabas Gunung Parang</title>
-				<link>http://localhost:1313/destinasi/singkapan-diabas-gunung-parang/</link>
+				<link>https://example.org/destinasi/singkapan-diabas-gunung-parang/</link>
 				<pubDate>Sun, 02 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/destinasi/singkapan-diabas-gunung-parang/</guid>
+				<guid>https://example.org/destinasi/singkapan-diabas-gunung-parang/</guid>
 				<description>Struktur batuan beku intrusi diabas berstruktur kekut tiang (columnar joint).</description>
 			</item>
 	</channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Geowisata desa karangsambung</title>
-		<link>http://localhost:1313/geo-heritage/</link>
+		<link>https://example.org/geo-heritage/</link>
 		<description>Recent content on Geowisata desa karangsambung</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -10,6 +10,6 @@
 		
 		
 		
-			<atom:link href="http://localhost:1313/geo-heritage/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://example.org/geo-heritage/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>

@@ -2,55 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/artikel/</loc>
+    <loc>https://example.org/artikel/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/batuan-beku/</loc>
+    <loc>https://example.org/tags/batuan-beku/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/columnar-joint/</loc>
+    <loc>https://example.org/tags/columnar-joint/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/destinasi/</loc>
+    <loc>https://example.org/destinasi/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/geologi/</loc>
+    <loc>https://example.org/tags/geologi/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/geosite/</loc>
+    <loc>https://example.org/tags/geosite/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.org/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/melange/</loc>
+    <loc>https://example.org/tags/melange/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/artikel/sejarah-pembentukan-karangsambung/</loc>
+    <loc>https://example.org/artikel/sejarah-pembentukan-karangsambung/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sejarah-bumi/</loc>
+    <loc>https://example.org/tags/sejarah-bumi/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/destinasi/singkapan-diabas-gunung-parang/</loc>
+    <loc>https://example.org/destinasi/singkapan-diabas-gunung-parang/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://example.org/tags/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tektonik-lempeng/</loc>
+    <loc>https://example.org/tags/tektonik-lempeng/</loc>
     <lastmod>2026-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/geo-heritage/</loc>
+    <loc>https://example.org/geo-heritage/</loc>
   </url><url>
-    <loc>http://localhost:1313/geo-trail/</loc>
+    <loc>https://example.org/geo-trail/</loc>
   </url><url>
-    <loc>http://localhost:1313/paket-wisata/</loc>
+    <loc>https://example.org/paket-wisata/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://example.org/geosite/pentatas-luk-ulo/</loc>
   </url><url>
-    <loc>http://localhost:1313/geosite/</loc>
+    <loc>https://example.org/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/geosite/gunung-parang/</loc>
+    <loc>https://example.org/geosite/</loc>
+  </url><url>
+    <loc>https://example.org/geosite/gunung-parang/</loc>
   </url>
 </urlset>
