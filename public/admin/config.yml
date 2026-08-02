@@ -46,7 +46,7 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Penulis", name: "penulis", widget: "string" }
       - { label: "Kategori", name: "kategori", widget: "string" }
-      - { label: "Foto Sampul (URL)", name: "foto_sampul", widget: "string" }
+      - { label: "Foto Sampul", name: "foto_sampul", widget: "image" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
