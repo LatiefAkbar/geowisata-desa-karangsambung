@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: LatiefAkbar/geowisata-desa-karangsambung # Ganti dengan username/nama-repository-github-anda
+  branch: main # Ganti ke master jika branch utama Anda bernama master
+  base_url: https://decapbridge.com
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "penulis", widget: "string" }
+      - { label: "Kategori", name: "kategori", widget: "string" }
+      - { label: "Foto Sampul (URL)", name: "foto_sampul", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
