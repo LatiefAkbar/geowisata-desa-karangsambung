@@ -1,1 +1,5 @@
-public/
+# Abaikan semua file dan folder di dalam direktori public
+public/*
+
+# Jangan abaikan folder public/admin
+!public/admin/
