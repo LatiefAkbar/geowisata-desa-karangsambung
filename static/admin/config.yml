@@ -5,8 +5,8 @@ backend:
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
-  auth_endpoint: /sites/dcaebc32-6437-4ab2-ae18-e42f8409c275/pkce
-  auth_token_endpoint: /sites/dcaebc32-6437-4ab2-ae18-e42f8409c275/token
+  auth_endpoint: /sites/caca4785-1239-49a9-9f62-1671d38a9c6e/pkce
+  auth_token_endpoint: /sites/caca4785-1239-49a9-9f62-1671d38a9c6e/token
   gateway_url: https://gateway.decapbridge.com
 
   # See who did what (optional)
