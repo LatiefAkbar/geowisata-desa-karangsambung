@@ -31,113 +31,22 @@ logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 # Add site links in Decap CMS (optional)
 site_url: https://geowisatadesakarangsambung.my.id
 
-# Folder Penyimpanan Media
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # -----------------------------------------------------------------
-  # 1. KOLEKSI ARTIKEL & EDUKASI
-  # -----------------------------------------------------------------
-  - name: "artikel"
-    label: "Artikel & Edukasi"
+  - name: "blog"
+    label: "Blog"
     folder: "content/artikel"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Judul Artikel", name: "title", widget: "string" }
-      - { label: "Tanggal Diterbitkan", name: "date", widget: "datetime" }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Kategori", name: "kategori", widget: "string", default: "Edukasi" }
-      - { label: "Penulis", name: "penulis", widget: "string", required: false }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "penulis", widget: "string" }
+      - { label: "Kategori", name: "kategori", widget: "string" }
       - { label: "Foto Sampul", name: "foto_sampul", widget: "image", required: false }
-      - { label: "Deskripsi Ringkas / Summary", name: "description", widget: "text", required: false }
-      - { label: "Topik / Tags", name: "tags", widget: "list", required: false }
-      - { label: "Isi Konten Artikel", name: "body", widget: "markdown" }
-
-  # -----------------------------------------------------------------
-  # 2. KOLEKSI KATALOG BATUAN PURBA (GEO-HERITAGE)
-  # -----------------------------------------------------------------
-  - name: "geo-heritage"
-    label: "Katalog Batuan Purba"
-    folder: "content/geo-heritage"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nama Batuan / Spesimen", name: "title", widget: "string" }
-      - { label: "Tanggal Input", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Kelompok / Jenis Batuan", name: "jenis_batuan", widget: "select", options: ["Metamorf", "Sedimen Laut Dalam", "Beku", "Sedimen Aluvial"] }
-      - { label: "Warna Khas", name: "warna", widget: "string", required: false }
-      - { label: "Tekstur / Mineral Utama", name: "mineral_utama", widget: "string", required: false }
-      - { label: "Lokasi Penemuan / Singkapan", name: "lokasi_penemuan", widget: "string", required: false }
-      - { label: "Foto Makro Spesimen", name: "foto_makro", widget: "image", required: false }
-      - { label: "Caption Foto", name: "caption_foto", widget: "string", required: false }
-      - { label: "Deskripsi Singkat", name: "description", widget: "text", required: false }
-      - { label: "Penjelasan Ilmiah / Genesis Batuan", name: "body", widget: "markdown" }
-
-  # -----------------------------------------------------------------
-  # 3. KOLEKSI RUTE & JALUR (GEO-TRAIL)
-  # -----------------------------------------------------------------
-  - name: "geo-trail"
-    label: "Rute & Jalur Geo-Trail"
-    folder: "content/geo-trail"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nama Rute", name: "title", widget: "string" }
-      - { label: "Tanggal Input", name: "date", widget: "datetime" }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Kategori Jalur", name: "kategori_jalur", widget: "string", default: "Ekskursi Utama" }
-      - { label: "Estimasi Durasi", name: "durasi", widget: "string", default: "1 Hari" }
-      - { label: "Tingkat Kesulitan", name: "kesulitan", widget: "select", options: ["Mudah", "Ringan - Sedang", "Sedang", "Sangat Sulit"] }
-      - { label: "Target Peserta", name: "target_peserta", widget: "string", required: false }
-      - { label: "Titik Kumpul (Start)", name: "titik_kumpul", widget: "string", required: false }
-      - { label: "Foto Peta / Panorama Rute", name: "foto_rute", widget: "image", required: false }
-      - { label: "Deskripsi Ringkas Rute", name: "description", widget: "text", required: false }
-      - { label: "Detail Itinerary & Narasi Lapangan", name: "body", widget: "markdown" }
-
-  # -----------------------------------------------------------------
-  # 4. KOLEKSI PAKET & LAYANAN GEOWISATA
-  # -----------------------------------------------------------------
-  - name: "paket-wisata"
-    label: "Paket & Layanan Wisata"
-    folder: "content/paket-wisata"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nama Paket Wisata", name: "title", widget: "string" }
-      - { label: "Tanggal Input", name: "date", widget: "datetime" }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Kategori Paket", name: "kategori_paket", widget: "string", default: "Tour Umum" }
-      - { label: "Harga Paket", name: "harga", widget: "string", default: "Rp 100.000" }
-      - { label: "Satuan Harga", name: "satuan_harga", widget: "string", default: "peserta" }
-      - { label: "Durasi Program", name: "durasi", widget: "string", default: "1 Hari" }
-      - { label: "Min. Jumlah Peserta", name: "min_peserta", widget: "string", default: "10 Orang" }
-      - { label: "Foto Paket", name: "foto_paket", widget: "image", required: false }
-      - { label: "Deskripsi Ringkas Paket", name: "description", widget: "text", required: false }
-      - { label: "Fasilitas Termasuk (Include)", name: "fasilitas_include", widget: "list", required: false }
-      - { label: "Belum Termasuk (Exclude)", name: "fasilitas_exclude", widget: "list", required: false }
-      - { label: "Penjelasan Lengkap Paket", name: "body", widget: "markdown" }
-
-  # -----------------------------------------------------------------
-  # 5. KOLEKSI KATALOG DESTINASI GEOSITE
-  # -----------------------------------------------------------------
-  - name: "geosite"
-    label: "Katalog Destinasi Geosite"
-    folder: "content/geosite"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nama Destinasi Geosite", name: "title", widget: "string" }
-      - { label: "Tanggal Input", name: "date", widget: "datetime" }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - { label: "Kategori / Formasi Batuan", name: "kategori_batuan", widget: "string", required: false }
-      - { label: "Estimasi Umur Geologi", name: "umur_geologi", widget: "string", required: false }
-      - { label: "Koordinat GPS (misal: -7.534, 109.664)", name: "koordinat", widget: "string", required: false }
-      - { label: "Aksesibilitas Lokasi", name: "aksesibilitas", widget: "string", required: false }
-      - { label: "Foto Utama Geosite", name: "foto_utama", widget: "image", required: false }
-      - { label: "Caption Foto", name: "caption_foto", widget: "string", required: false }
-      - { label: "Deskripsi Ringkas Geosite", name: "description", widget: "text", required: false }
-      - { label: "Daftar Fasilitas Tersedia", name: "fasilitas", widget: "list", required: false }
-      - { label: "Penjelasan Ilmiah & Deskripsi Geosite", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }
