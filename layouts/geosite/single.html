@@ -1,0 +1,94 @@
+{{ define "main" }}
+<article class="max-w-5xl mx-auto px-6 py-12">
+  
+  <!-- Breadcrumb -->
+  <nav class="text-xs font-semibold text-slate-400 mb-6 flex items-center gap-2">
+    <a href="/" class="hover:text-emerald-600">Beranda</a>
+    <span>/</span>
+    <a href="/geosite" class="hover:text-emerald-600">Geosite</a>
+    <span>/</span>
+    <span class="text-slate-700">{{ .Title }}</span>
+  </nav>
+
+  <!-- Header & Judul -->
+  <div class="mb-8">
+    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+      {{ .Params.kategori_batuan }}
+    </span>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3">{{ .Title }}</h1>
+    <p class="text-slate-600 text-lg mt-2">{{ .Description }}</p>
+  </div>
+
+  <!-- Foto Utama Hero -->
+  <div class="relative h-80 md:h-[450px] w-full rounded-2xl overflow-hidden shadow-lg mb-10">
+    <img src="{{ .Params.foto_utama }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Grid Utama: Info Spesifikasi (Kiri) & Konten Narasi (Kanan) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+    
+    <!-- Sidebar Kiri: Info Spesifikasi Geologi & Akses -->
+    <div class="lg:col-span-1 space-y-6">
+      
+      <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm space-y-4">
+        <h3 class="text-sm font-bold uppercase text-emerald-400 tracking-wider border-b border-slate-800 pb-3">
+          Spesifikasi Geologi
+        </h3>
+        
+        <div>
+          <p class="text-xs text-slate-400">Jenis / Kategori Batuan</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.kategori_batuan }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Estimasi Umur Geologi</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.umur_geologi | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Koordinat GPS</p>
+          <p class="text-sm font-mono text-emerald-300 mt-0.5">{{ .Params.koordinat | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Aksesibilitas</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">📍 {{ .Params.aksesibilitas }}</p>
+        </div>
+      </div>
+
+      <!-- Kotak Fasilitas -->
+      {{ if .Params.fasilitas }}
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-sm font-bold uppercase text-slate-800 tracking-wider border-b border-slate-100 pb-3 mb-3">
+          Fasilitas Tersedia
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-600">
+          {{ range .Params.fasilitas }}
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-600 font-bold">✓</span> {{ . }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      <!-- Call to Action Google Maps -->
+      {{ if .Params.koordinat }}
+      <a href="https://maps.google.com/?q={{ .Params.koordinat }}" target="_blank" class="block w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition shadow">
+        Buka di Google Maps 🗺️
+      </a>
+      {{ end }}
+
+    </div>
+
+    <!-- Area Kanan: Deskripsi Penjelasan Ilmiah & Cerita -->
+    <div class="lg:col-span-2">
+      <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-emerald-600 text-slate-700 leading-relaxed space-y-4">
+        {{ .Content }}
+      </div>
+    </div>
+
+  </div>
+
+</article>
+{{ end }}

@@ -1,0 +1,65 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-6 py-12">
+  
+  <!-- Breadcrumb -->
+  <nav class="text-xs font-semibold text-slate-400 mb-6 flex items-center gap-2">
+    <a href="/" class="hover:text-emerald-600">Beranda</a>
+    <span>/</span>
+    <a href="/artikel" class="hover:text-emerald-600">Artikel</a>
+    <span>/</span>
+    <span class="text-slate-700 line-clamp-1">{{ .Title }}</span>
+  </nav>
+
+  <!-- Header Artikel -->
+  <header class="mb-8">
+    <div class="flex items-center gap-3 text-xs text-slate-500 font-medium mb-3">
+      <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full uppercase">
+        {{ .Params.kategori | default "Edukasi" }}
+      </span>
+      <span>•</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">
+        📅 {{ .Date.Format "02 Jan 2006" }}
+      </time>
+      {{ if .Params.penulis }}
+      <span>•</span>
+      <span>✍️ {{ .Params.penulis }}</span>
+      {{ end }}
+    </div>
+
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+      {{ .Title }}
+    </h1>
+    
+    {{ if .Description }}
+    <p class="text-slate-600 text-lg md:text-xl mt-4 leading-relaxed font-light">
+      {{ .Description }}
+    </p>
+    {{ end }}
+  </header>
+
+  <!-- Foto Sampul Artikel -->
+  {{ if .Params.foto_sampul }}
+  <div class="relative h-72 md:h-[420px] w-full rounded-2xl overflow-hidden shadow-md mb-10">
+    <img src="{{ .Params.foto_sampul }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+  </div>
+  {{ end }}
+
+  <!-- Isi Konten Artikel -->
+  <div class="prose prose-slate md:prose-lg max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-emerald-600 prose-img:rounded-xl text-slate-700 leading-relaxed">
+    {{ .Content }}
+  </div>
+
+  <!-- Tag / Topik Artikel -->
+  {{ if .Params.tags }}
+  <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-2">
+    <span class="text-xs font-bold text-slate-400 uppercase mr-2">Topik:</span>
+    {{ range .Params.tags }}
+      <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-lg">
+        #{{ . }}
+      </span>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</article>
+{{ end }}

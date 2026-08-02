@@ -1,0 +1,41 @@
+{{ define "main" }}
+<section class="max-w-7xl mx-auto px-6 py-12">
+  
+  <!-- Header Section -->
+  <div class="text-center max-w-2xl mx-auto mb-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Artikel & Edukasi Geologi</h1>
+    <p class="text-slate-600 mt-3">Kumpulan bacaan edukasi mengenai fenomena lempeng bumi, sejarah Cagar Alam Geologi Karangsambung, dan kabar kegiatan terbaru.</p>
+  </div>
+
+  <!-- Grid Card Artikel -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {{ range .Pages }}
+    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition group flex flex-col justify-between">
+      <div>
+        <div class="h-48 bg-slate-100 relative overflow-hidden">
+          <img src="{{ .Params.foto_sampul }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">
+            {{ .Params.kategori | default "Berita" }}
+          </span>
+        </div>
+        <div class="p-6">
+          <p class="text-xs text-slate-400 font-medium mb-1">📅 {{ .Date.Format "02 Jan 2006" }}</p>
+          <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition line-clamp-2">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          <p class="text-slate-600 text-sm mt-2 line-clamp-3">{{ .Summary }}</p>
+        </div>
+      </div>
+      <div class="px-6 pb-6 pt-0 mt-4">
+        <a href="{{ .RelPermalink }}" class="text-emerald-600 font-bold text-xs group-hover:translate-x-1 transition inline-flex items-center gap-1">
+          Baca Selengkapnya &rarr;
+        </a>
+      </div>
+    </article>
+    {{ else }}
+    <p class="text-slate-500 italic col-span-3 text-center py-12">Belum ada artikel yang diterbitkan.</p>
+    {{ end }}
+  </div>
+
+</section>
+{{ end }}

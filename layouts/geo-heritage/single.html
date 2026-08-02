@@ -1,0 +1,69 @@
+{{ define "main" }}
+<article class="max-w-5xl mx-auto px-6 py-12">
+  
+  <!-- Breadcrumb -->
+  <nav class="text-xs font-semibold text-slate-400 mb-6 flex items-center gap-2">
+    <a href="/" class="hover:text-emerald-600">Beranda</a>
+    <span>/</span>
+    <a href="/geo-heritage" class="hover:text-emerald-600">Katalog Batuan</a>
+    <span>/</span>
+    <span class="text-slate-700">{{ .Title }}</span>
+  </nav>
+
+  <!-- Header Spesimen -->
+  <div class="mb-8">
+    <span class="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+      Batuan {{ .Params.jenis_batuan }}
+    </span>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3">{{ .Title }}</h1>
+    <p class="text-slate-600 text-lg mt-2">{{ .Description }}</p>
+  </div>
+
+  <!-- Visual Makro Batuan -->
+  <div class="relative h-80 md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg mb-10 bg-slate-900">
+    <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Grid Spesifikasi Mineral & Deskripsi -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+    
+    <!-- Sidebar Kiri: Kartu Identitas Spesimen -->
+    <div class="lg:col-span-1 space-y-6">
+      <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm space-y-4">
+        <h3 class="text-sm font-bold uppercase text-amber-400 tracking-wider border-b border-slate-800 pb-3">
+          Identitas Spesimen
+        </h3>
+        
+        <div>
+          <p class="text-xs text-slate-400">Kelompok Batuan</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.jenis_batuan }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Warna Khas</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.warna | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Tekstur / Mineral Utama</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">{{ .Params.mineral_utama | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Lokasi Ditemukan di Karangsambung</p>
+          <p class="text-sm font-semibold text-emerald-400 mt-0.5">📍 {{ .Params.lokasi_penemuan | default "-" }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Area Kanan: Penjelasan Ilmiah / Deskripsi Pembentukan -->
+    <div class="lg:col-span-2">
+      <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-emerald-600 text-slate-700 leading-relaxed space-y-4">
+        {{ .Content }}
+      </div>
+    </div>
+
+  </div>
+
+</article>
+{{ end }}

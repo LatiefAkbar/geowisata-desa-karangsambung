@@ -1,0 +1,74 @@
+{{ define "main" }}
+<article class="max-w-5xl mx-auto px-6 py-12">
+  
+  <!-- Breadcrumb -->
+  <nav class="text-xs font-semibold text-slate-400 mb-6 flex items-center gap-2">
+    <a href="/" class="hover:text-emerald-600">Beranda</a>
+    <span>/</span>
+    <a href="/geo-trail" class="hover:text-emerald-600">Rute Wisata</a>
+    <span>/</span>
+    <span class="text-slate-700">{{ .Title }}</span>
+  </nav>
+
+  <!-- Header Rute -->
+  <div class="mb-8">
+    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+      {{ .Params.kategori_jalur | default "Geo-Trail" }}
+    </span>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-3">{{ .Title }}</h1>
+    <p class="text-slate-600 text-lg mt-2">{{ .Description }}</p>
+  </div>
+
+  <!-- Foto Hero Rute -->
+  <div class="relative h-80 md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg mb-10">
+    <img src="{{ .Params.foto_rute }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Grid Utama: Ringkasan Info (Kiri) & Itinerary / Deskripsi (Kanan) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+    
+    <!-- Sidebar Kiri: Ringkasan Teknis Perjalanan -->
+    <div class="lg:col-span-1 space-y-6">
+      <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-sm space-y-4">
+        <h3 class="text-sm font-bold uppercase text-indigo-400 tracking-wider border-b border-slate-800 pb-3">
+          Informasi Perjalanan
+        </h3>
+        
+        <div>
+          <p class="text-xs text-slate-400">Estimasi Durasi</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">⏱️ {{ .Params.durasi | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Tingkat Kesulitan</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">🧗 {{ .Params.kesulitan | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Target Peserta</p>
+          <p class="text-sm font-semibold text-slate-100 mt-0.5">👥 {{ .Params.target_peserta | default "-" }}</p>
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-400">Titik Kumpul (Start)</p>
+          <p class="text-sm font-semibold text-emerald-400 mt-0.5">📍 {{ .Params.titik_kumpul | default "-" }}</p>
+        </div>
+      </div>
+
+      <!-- Tombol Booking / Tanya Guide -->
+      <a href="https://wa.me/?text=Halo,%20saya%20tertarik%20dengan%20rute%20{{ .Title }}" target="_blank" class="block w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition shadow">
+        Reservasi / Sewa Guide 📱
+      </a>
+    </div>
+
+    <!-- Area Kanan: Detail Itinerary & Narasi Perjalanan -->
+    <div class="lg:col-span-2">
+      <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-emerald-600 text-slate-700 leading-relaxed space-y-4">
+        {{ .Content }}
+      </div>
+    </div>
+
+  </div>
+
+</article>
+{{ end }}
