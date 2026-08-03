@@ -1,46 +1,49 @@
 {{ define "main" }}
 
-  <!-- 1. Hero Section (Fokus Utama Saat Pertama Buka) -->
-  <section class="relative bg-cover bg-center text-white py-24 lg:py-32 px-6 border-b border-slate-800" style="background-image: url('/images/uploads/bukit-karangsambung.jpeg');">
+  <!-- 1. Hero Section (Full Viewport Height Pas 100% HP & Konten Lebih Luas) -->
+  <section class="relative min-h-svh flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-6 lg:px-12 overflow-hidden border-b border-slate-800" style="background-image: url('/images/uploads/bukit-karangsambung.jpeg');">
+    <!-- Overlay Gelap Hero -->
     <div class="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px]"></div>
 
-    <div class="relative max-w-4xl mx-auto text-center space-y-5 z-10">
+    <!-- Konten Utama Hero -->
+    <div class="relative max-w-7xl mx-auto text-center space-y-6 z-10 my-auto pt-20 pb-10 w-full">
       <p class="text-xs uppercase tracking-[0.25em] text-emerald-400 font-semibold">
         Cagar Alam Geologi Kebumen
       </p>
 
-      <h1 class="font-serif text-3xl sm:text-5xl font-normal leading-tight text-slate-100">
+      <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight text-slate-100">
         Singkapan Dasar Samudera Purba Karangsambung
       </h1>
 
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-light">
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-light">
         Situs laboratorium alam geologi terkemuka di Indonesia. Menyingkap keanekaragaman batuan metamorf, sedimen, dan beku dari proses subduksi ratusan juta tahun lalu.
       </p>
 
-      <div class="pt-3 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider font-semibold">
-        <a href="/geosite" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white transition">
+      <div class="pt-2 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider font-semibold">
+        <a href="/geosite" class="px-6 py-3 bg-emerald-700 hover:bg-emerald-600 text-white transition shadow-lg">
           Eksplor Geosite
         </a>
-        <a href="/geo-trail" class="px-5 py-2.5 bg-slate-900/80 hover:bg-slate-900 border border-slate-700 text-slate-200 transition">
+        <a href="/geo-trail" class="px-6 py-3 bg-slate-900/80 hover:bg-slate-900 border border-slate-700 text-slate-200 transition shadow-lg">
           Peta Rute Wisata
         </a>
       </div>
+    </div>
 
-      <!-- Indikator Scroll Halus -->
-      <div class="pt-8 flex justify-center animate-bounce">
-        <a href="#content-start" aria-label="Scroll Down" class="text-slate-400 hover:text-emerald-400 transition">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"/></svg>
-        </a>
-      </div>
+    <!-- Petunjuk Scroll ke Bawah -->
+    <div class="relative z-10 pb-6 flex flex-col items-center gap-2">
+      <span class="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Gulir ke bawah</span>
+      <a href="#content-start" aria-label="Scroll Down" class="text-slate-400 hover:text-emerald-400 transition animate-bounce p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"/></svg>
+      </a>
     </div>
   </section>
 
-  <!-- Container Konten Bawah (Awalnya Blur, Transisi Halus Saat Discroll) -->
-  <div id="content-start" class="scroll-reveal opacity-0 blur-md translate-y-8 transition-all duration-1000 ease-out">
+  <!-- 2. Container Konten Bawah (Lebar Diperluas & Padding Bawah Ditambah untuk Jarak dari Footer) -->
+  <div id="content-start">
 
-    <!-- 2. Main Layout: Geosite Carousel (Kiri) & Artikel Terbaru (Kanan) -->
-    <section class="max-w-6xl mx-auto pt-14 pb-10 px-6 border-b border-slate-200">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <!-- 2a. Main Layout: Geosite Carousel (Kiri) & Artikel Terbaru (Kanan) -->
+    <section class="max-w-[90rem] mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
         
         <!-- Kolom Kiri: Geosite Utama Carousel Auto-Play (8/12 Kolom) -->
         <div class="lg:col-span-8 space-y-6">
@@ -63,7 +66,7 @@
           <!-- Carousel Container -->
           <div id="carouselContainer" class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-2 px-1">
             {{ range (where .Site.RegularPages "Type" "geosite") }}
-              <article class="carousel-item min-w-[240px] max-w-[240px] bg-white border border-slate-200 flex flex-col justify-between group flex-shrink-0 transition-all duration-500 opacity-60 scale-95 border-slate-200">
+              <article class="carousel-item min-w-[240px] max-w-[240px] bg-white border border-slate-200 flex flex-col justify-between group flex-shrink-0 transition-all duration-500 opacity-60 scale-95">
                 <div>
                   <div class="aspect-[4/3] w-full bg-slate-100 overflow-hidden relative">
                     {{ if .Params.foto_utama }}
@@ -140,7 +143,7 @@
     </section>
 
     <!-- 3. Section Rute & Jalur Geo-Trail -->
-    <section class="max-w-6xl mx-auto py-12 px-6 border-b border-slate-200">
+    <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
       <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
         <div>
           <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Navigasi Lapangan</span>
@@ -191,7 +194,7 @@
     </section>
 
     <!-- 4. Section Paket & Layanan Geowisata -->
-    <section class="max-w-6xl mx-auto py-12 px-6 border-b border-slate-200">
+    <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
       <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
         <div>
           <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Layanan</span>
@@ -236,8 +239,8 @@
     </section>
 
     <!-- 5. Section Katalog Batuan Purba (Geo-Heritage) -->
-    <section class="max-w-6xl mx-auto py-12 px-6">
-      <div class="bg-slate-900 text-slate-200 p-8 border border-slate-800">
+    <section class="max-w-[90rem] mx-auto pt-12 px-4 sm:px-6 lg:px-8">
+      <div class="bg-slate-900 text-slate-200 p-6 sm:p-8 border border-slate-800">
         <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-1">Geo-Heritage</span>
@@ -275,12 +278,11 @@
 
   </div>
 
-  <!-- Styling Custom -->
+  <!-- Styles & Script -->
   <style>
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Carousel Highlight Class */
     .carousel-item.active-highlight {
       opacity: 1 !important;
       transform: scale(1) !important;
@@ -288,7 +290,6 @@
       box-shadow: 0 4px 12px -2px rgba(5, 150, 105, 0.15);
     }
 
-    /* Class Reveal Konten Aktif */
     .scroll-reveal.revealed {
       opacity: 1 !important;
       filter: blur(0px) !important;
@@ -296,10 +297,9 @@
     }
   </style>
 
-  <!-- Script Intersection Observer & Carousel -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Logic Reveal Blur on Scroll
+      // Intersection Observer Reveal
       const revealContainer = document.querySelector('.scroll-reveal');
       if (revealContainer) {
         const observer = new IntersectionObserver((entries) => {
@@ -309,13 +309,13 @@
             }
           });
         }, {
-          threshold: 0.05 // Memicu efek saat 5% bagian atas konten mulai tersentuh scroll
+          threshold: 0.05
         });
 
         observer.observe(revealContainer);
       }
 
-      // 2. Logic Carousel Auto Play
+      // Carousel Auto-Play
       const container = document.getElementById('carouselContainer');
       const items = container ? container.querySelectorAll('.carousel-item') : [];
       if (!items.length) return;
