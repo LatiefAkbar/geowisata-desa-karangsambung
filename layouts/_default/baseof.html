@@ -19,13 +19,13 @@
 </head>
 <body class="bg-[#FBFBFA] text-slate-800 antialiased flex flex-col min-h-screen">
 
-  <!-- Header Ukuran Semula (h-20) dengan Kondisional Transparansi Dynamic -->
+  <!-- Header Utama -->
   <header id="main-header" 
           data-is-home="{{ if .IsHome }}true{{ else }}false{{ end }}"
           class="fixed top-0 inset-x-0 z-[100] {{ if .IsHome }}bg-slate-900/20 border-white/10 backdrop-blur-[2px]{{ else }}bg-slate-900/90 border-slate-800/80 backdrop-blur-md shadow-md{{ end }} text-white border-b transition-all duration-300 ease-out">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo / Title (Ukuran Asli) -->
+      <!-- Brand Logo / Title -->
       <a href="/" class="flex items-center gap-3 group">
         <div class="border-l-2 border-emerald-500 pl-3">
           <span class="block font-serif text-lg font-bold text-white tracking-tight leading-none group-hover:text-emerald-400 transition">Geowisata</span>
@@ -42,7 +42,7 @@
         <a href="/artikel" class="hover:text-emerald-400 transition">Artikel</a>
       </nav>
 
-      <!-- CTA Button & Hamburger Toggle (Ukuran Asli) -->
+      <!-- CTA Button & Hamburger Toggle -->
       <div class="flex items-center gap-4">
         <a href="/paket-wisata" class="text-xs font-semibold uppercase tracking-wider px-4 py-2.5 bg-emerald-700/90 hover:bg-emerald-600 text-white transition rounded-sm border border-emerald-500/30">
           Jelajahi Site
@@ -53,23 +53,68 @@
       </div>
 
     </div>
-
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900/95 backdrop-blur-xl px-6 py-4 space-y-3 shadow-2xl">
-      <a href="/geosite" class="block text-sm font-medium text-slate-300 hover:text-emerald-400">Geosite</a>
-      <a href="/geo-heritage" class="block text-sm font-medium text-slate-300 hover:text-emerald-400">Katalog Batuan</a>
-      <a href="/geo-trail" class="block text-sm font-medium text-slate-300 hover:text-emerald-400">Rute Wisata</a>
-      <a href="/paket-wisata" class="block text-sm font-medium text-slate-300 hover:text-emerald-400">Paket Tour</a>
-      <a href="/artikel" class="block text-sm font-medium text-slate-300 hover:text-emerald-400">Artikel</a>
-    </div>
   </header>
 
-  <!-- Main Content Area (Ditambah pt-20 Khusus Halaman Selain Home) -->
+  <!-- Mobile Sidebar Menu Overlay (Backdrop Gelap) -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-[105] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <!-- Mobile Sidebar Drawer (Meluncur dari Kiri) -->
+  <aside id="mobile-menu" class="fixed top-0 left-0 bottom-0 w-[80%] max-w-sm bg-slate-900 border-r border-slate-800 text-white z-[110] -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between shadow-2xl">
+    
+    <div>
+      <!-- Header Mobile Sidebar -->
+      <div class="p-6 border-b border-slate-800/80 flex items-center justify-between">
+        <div class="border-l-2 border-emerald-500 pl-3">
+          <span class="block font-serif text-base font-bold text-white tracking-tight leading-none">Geowisata</span>
+          <span class="text-[9px] tracking-widest uppercase font-semibold text-emerald-400">Karangsambung</span>
+        </div>
+        <button id="menu-close" type="button" aria-label="Close Menu" class="p-2 text-slate-400 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Links Navigasi Mobile -->
+      <nav class="px-6 py-6 space-y-2 text-sm font-medium">
+        <a href="/geosite" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+          <span>Geosite</span>
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/geo-heritage" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+          <span>Katalog Batuan</span>
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/geo-trail" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+          <span>Rute Wisata</span>
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/paket-wisata" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+          <span>Paket Tour</span>
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/artikel" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+          <span>Artikel</span>
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Footer Mobile Sidebar -->
+    <div class="p-6 border-t border-slate-800/80 space-y-4">
+      <a href="/paket-wisata" class="block text-center text-xs font-bold uppercase tracking-wider py-3 bg-emerald-700 hover:bg-emerald-600 text-white transition rounded-sm shadow-md">
+        Jelajahi Site Sekarang
+      </a>
+      <p class="text-[10px] text-center text-slate-500 uppercase tracking-widest">
+        Cagar Alam Geologi Kebumen
+      </p>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
   <main class="flex-grow {{ if not .IsHome }}pt-20{{ end }}">
     {{ block "main" . }}{{ end }}
   </main>
 
-  <!-- Footer (Diperbaiki padding vertikal agar tidak terlalu ke atas / mepet bawah) -->
+  <!-- Footer -->
   <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 mt-16">
     <div class="max-w-6xl mx-auto px-6 py-14">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
@@ -102,22 +147,41 @@
     </div>
   </footer>
 
-  <!-- Script Penanganan Transparansi & Auto-Hide pada Mobile -->
+  <!-- Script Penanganan Drawer Kiri, Overlay Backdrop, Transparansi & Auto-Hide -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const header = document.getElementById('main-header');
       const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
       const mobileMenu = document.getElementById('mobile-menu');
+      const mobileOverlay = document.getElementById('mobile-overlay');
       const isHome = header.getAttribute('data-is-home') === 'true';
 
       let lastScrollY = window.scrollY;
-      const scrollThreshold = 12; // Toleransi pergerakan scroll (mencegah kepekaan mikro)
+      const scrollThreshold = 12;
 
-      // Toggle Menu Mobile
-      menuToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        mobileMenu.classList.toggle('hidden');
-      });
+      // Fungsi Buka Drawer Mobile (Slide-In dari Kiri)
+      function openMenu() {
+        mobileMenu.classList.remove('-translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        mobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.classList.add('overflow-hidden'); // Kunci scroll halaman saat menu terbuka
+      }
+
+      // Fungsi Tutup Drawer Mobile
+      function closeMenu() {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('-translate-x-full');
+        mobileOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      // Event Listeners Buka/Tutup
+      if (menuToggle) menuToggle.addEventListener('click', openMenu);
+      if (menuClose) menuClose.addEventListener('click', closeMenu);
+      if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
       // Logika Transparansi & Auto-Hide Header saat Scroll
       window.addEventListener('scroll', () => {
@@ -136,17 +200,17 @@
 
         // 2. Auto-Hide saat Scroll Down & Muncul saat Scroll Up (Khusus Mode Mobile)
         if (window.innerWidth < 768) {
-          // Jangan sembunyikan jika menu dropdown sedang terbuka
-          if (!mobileMenu.classList.contains('hidden')) return;
+          // Jangan sembunyikan jika menu drawer sedang terbuka
+          if (mobileMenu.classList.contains('translate-x-0')) return;
 
           const diff = Math.abs(currentScrollY - lastScrollY);
 
           if (diff >= scrollThreshold) {
             if (currentScrollY > lastScrollY && currentScrollY > 80) {
-              // Scroll ke Bawah -> Sembunyikan Navbar
+              // Scroll ke Bawah -> Sembunyikan Header
               header.style.transform = 'translateY(-100%)';
             } else {
-              // Scroll ke Atas -> Munculkan Navbar Kembali
+              // Scroll ke Atas -> Munculkan Header Kembali
               header.style.transform = 'translateY(0)';
             }
             lastScrollY = currentScrollY;
@@ -156,13 +220,6 @@
           header.style.transform = 'translateY(0)';
         }
       }, { passive: true });
-
-      // Tutup menu seluler jika mengklik di luar area header
-      document.addEventListener('click', (e) => {
-        if (!header.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
     });
   </script>
 </body>
