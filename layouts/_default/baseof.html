@@ -102,7 +102,7 @@
     </div>
   </footer>
 
-  <!-- Script Penanganan Transparansi Saja (Efek Auto-Hide Header Dihapus) -->
+  <!-- Script Penanganan Transparansi & Auto-Hide pada Mobile -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const header = document.getElementById('main-header');
@@ -110,16 +110,20 @@
       const mobileMenu = document.getElementById('mobile-menu');
       const isHome = header.getAttribute('data-is-home') === 'true';
 
+      let lastScrollY = window.scrollY;
+      const scrollThreshold = 12; // Toleransi pergerakan scroll (mencegah kepekaan mikro)
+
       // Toggle Menu Mobile
       menuToggle.addEventListener('click', (e) => {
         e.preventDefault();
         mobileMenu.classList.toggle('hidden');
       });
 
-      // Logika Transparansi Header saat Scroll
+      // Logika Transparansi & Auto-Hide Header saat Scroll
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
 
+        // 1. Transparansi khusus Halaman Utama
         if (isHome) {
           if (currentScrollY > 60) {
             header.classList.remove('bg-slate-900/20', 'border-white/10', 'backdrop-blur-[2px]');
@@ -128,6 +132,28 @@
             header.classList.add('bg-slate-900/20', 'border-white/10', 'backdrop-blur-[2px]');
             header.classList.remove('bg-slate-900/90', 'border-slate-800/80', 'backdrop-blur-md', 'shadow-md');
           }
+        }
+
+        // 2. Auto-Hide saat Scroll Down & Muncul saat Scroll Up (Khusus Mode Mobile)
+        if (window.innerWidth < 768) {
+          // Jangan sembunyikan jika menu dropdown sedang terbuka
+          if (!mobileMenu.classList.contains('hidden')) return;
+
+          const diff = Math.abs(currentScrollY - lastScrollY);
+
+          if (diff >= scrollThreshold) {
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+              // Scroll ke Bawah -> Sembunyikan Navbar
+              header.style.transform = 'translateY(-100%)';
+            } else {
+              // Scroll ke Atas -> Munculkan Navbar Kembali
+              header.style.transform = 'translateY(0)';
+            }
+            lastScrollY = currentScrollY;
+          }
+        } else {
+          // Desktop selalu tampilkan penuh
+          header.style.transform = 'translateY(0)';
         }
       }, { passive: true });
 
