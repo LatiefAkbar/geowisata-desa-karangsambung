@@ -17,37 +17,41 @@
     .font-serif { font-family: 'Merriweather', serif; }
   </style>
 </head>
-<body class="bg-[#FBFBFA] text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="bg-[#F8F9FA] text-slate-800 antialiased flex flex-col min-h-screen">
 
-  <!-- Header Utama -->
+  <!-- Header Utama (Floating Pill Style) -->
   <header id="main-header" 
           data-is-home="{{ if .IsHome }}true{{ else }}false{{ end }}"
-          class="fixed top-0 inset-x-0 z-[100] {{ if .IsHome }}bg-slate-900/20 border-white/10 backdrop-blur-[2px]{{ else }}bg-slate-900/90 border-slate-800/80 backdrop-blur-md shadow-md{{ end }} text-white border-b transition-all duration-300 ease-out">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+          class="fixed top-3 inset-x-0 z-[100] px-4 sm:px-6 transition-all duration-300 ease-out">
+    
+    <div class="max-w-6xl mx-auto h-16 px-4 sm:px-5 flex items-center justify-between rounded-full border border-slate-700/40 bg-slate-900/80 backdrop-blur-md text-white shadow-lg shadow-slate-950/20">
       
-      <!-- Brand Logo / Title -->
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="border-l-2 border-emerald-500 pl-3">
-          <span class="block font-serif text-lg font-bold text-white tracking-tight leading-none group-hover:text-emerald-400 transition">Geowisata</span>
-          <span class="text-[10px] tracking-widest uppercase font-semibold text-emerald-400">Karangsambung</span>
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center gap-2.5 group pl-1">
+        <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11a2 2 0 012-2h1.065"/></svg>
+        </div>
+        <div class="leading-none">
+          <span class="block font-serif text-base font-bold text-white tracking-tight group-hover:text-emerald-400 transition">Geowisata</span>
+          <span class="text-[9px] tracking-widest uppercase font-semibold text-emerald-400">Karangsambung</span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-200">
-        <a href="/geosite" class="hover:text-emerald-400 transition">Geosite</a>
-        <a href="/geo-heritage" class="hover:text-emerald-400 transition">Katalog Batuan</a>
-        <a href="/geo-trail" class="hover:text-emerald-400 transition">Rute Wisata</a>
-        <a href="/paket-wisata" class="hover:text-emerald-400 transition">Paket Tour</a>
-        <a href="/artikel" class="hover:text-emerald-400 transition">Artikel</a>
+      <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-slate-300 bg-slate-800/50 p-1 rounded-full border border-slate-700/30">
+        <a href="/geosite" class="px-4 py-1.5 rounded-full hover:text-white hover:bg-slate-700/60 transition">Geosite</a>
+        <a href="/geo-heritage" class="px-4 py-1.5 rounded-full hover:text-white hover:bg-slate-700/60 transition">Katalog Batuan</a>
+        <a href="/geo-trail" class="px-4 py-1.5 rounded-full hover:text-white hover:bg-slate-700/60 transition">Rute Wisata</a>
+        <a href="/paket-wisata" class="px-4 py-1.5 rounded-full hover:text-white hover:bg-slate-700/60 transition">Paket Tour</a>
+        <a href="/artikel" class="px-4 py-1.5 rounded-full hover:text-white hover:bg-slate-700/60 transition">Artikel</a>
       </nav>
 
-      <!-- CTA Button & Hamburger Toggle -->
-      <div class="flex items-center gap-4">
-        <a href="/paket-wisata" class="text-xs font-semibold uppercase tracking-wider px-4 py-2.5 bg-emerald-700/90 hover:bg-emerald-600 text-white transition rounded-sm border border-emerald-500/30">
+      <!-- CTA Button & Mobile Toggle -->
+      <div class="flex items-center gap-2">
+        <a href="/paket-wisata" class="text-xs font-semibold tracking-wide px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition rounded-full shadow-md shadow-emerald-500/20">
           Jelajahi Site
         </a>
-        <button id="menu-toggle" type="button" aria-label="Open Menu" class="md:hidden text-slate-200 hover:text-white p-2 focus:outline-none">
+        <button id="menu-toggle" type="button" aria-label="Open Menu" class="md:hidden text-slate-300 hover:text-white p-2 rounded-full hover:bg-slate-800 focus:outline-none transition">
           <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -55,43 +59,48 @@
     </div>
   </header>
 
-  <!-- Mobile Sidebar Menu Overlay (Backdrop Gelap) -->
+  <!-- Mobile Sidebar Overlay -->
   <div id="mobile-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-[105] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
 
-  <!-- Mobile Sidebar Drawer (Meluncur dari Kiri) -->
-  <aside id="mobile-menu" class="fixed top-0 left-0 bottom-0 w-[80%] max-w-sm bg-slate-900 border-r border-slate-800 text-white z-[110] -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between shadow-2xl">
+  <!-- Mobile Sidebar Drawer -->
+  <aside id="mobile-menu" class="fixed top-0 left-0 bottom-0 w-[80%] max-w-xs bg-slate-900 border-r border-slate-800/80 text-white z-[110] -translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between shadow-2xl rounded-r-2xl">
     
     <div>
       <!-- Header Mobile Sidebar -->
-      <div class="p-6 border-b border-slate-800/80 flex items-center justify-between">
-        <div class="border-l-2 border-emerald-500 pl-3">
-          <span class="block font-serif text-base font-bold text-white tracking-tight leading-none">Geowisata</span>
-          <span class="text-[9px] tracking-widest uppercase font-semibold text-emerald-400">Karangsambung</span>
+      <div class="p-5 border-b border-slate-800/80 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11a2 2 0 012-2h1.065"/></svg>
+          </div>
+          <div class="leading-none">
+            <span class="block font-serif text-base font-bold text-white tracking-tight">Geowisata</span>
+            <span class="text-[9px] tracking-widest uppercase font-semibold text-emerald-400">Karangsambung</span>
+          </div>
         </div>
-        <button id="menu-close" type="button" aria-label="Close Menu" class="p-2 text-slate-400 hover:text-white focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <button id="menu-close" type="button" aria-label="Close Menu" class="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
-      <!-- Links Navigasi Mobile -->
-      <nav class="px-6 py-6 space-y-2 text-sm font-medium">
-        <a href="/geosite" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+      <!-- Navigasi Mobile -->
+      <nav class="px-4 py-6 space-y-1 text-sm font-medium">
+        <a href="/geosite" class="flex items-center justify-between py-2.5 px-3 rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-emerald-400 transition">
           <span>Geosite</span>
           <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
-        <a href="/geo-heritage" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+        <a href="/geo-heritage" class="flex items-center justify-between py-2.5 px-3 rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-emerald-400 transition">
           <span>Katalog Batuan</span>
           <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
-        <a href="/geo-trail" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+        <a href="/geo-trail" class="flex items-center justify-between py-2.5 px-3 rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-emerald-400 transition">
           <span>Rute Wisata</span>
           <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
-        <a href="/paket-wisata" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+        <a href="/paket-wisata" class="flex items-center justify-between py-2.5 px-3 rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-emerald-400 transition">
           <span>Paket Tour</span>
           <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
-        <a href="/artikel" class="flex items-center justify-between py-3 px-3 rounded-md text-slate-200 hover:bg-slate-800 hover:text-emerald-400 transition">
+        <a href="/artikel" class="flex items-center justify-between py-2.5 px-3 rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-emerald-400 transition">
           <span>Artikel</span>
           <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
@@ -99,8 +108,8 @@
     </div>
 
     <!-- Footer Mobile Sidebar -->
-    <div class="p-6 border-t border-slate-800/80 space-y-4">
-      <a href="/paket-wisata" class="block text-center text-xs font-bold uppercase tracking-wider py-3 bg-emerald-700 hover:bg-emerald-600 text-white transition rounded-sm shadow-md">
+    <div class="p-5 border-t border-slate-800/80 space-y-3">
+      <a href="/paket-wisata" class="block text-center text-xs font-semibold tracking-wide py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition rounded-full shadow-md">
         Jelajahi Site Sekarang
       </a>
       <p class="text-[10px] text-center text-slate-500 uppercase tracking-widest">
@@ -110,7 +119,7 @@
   </aside>
 
   <!-- Main Content Area -->
-  <main class="flex-grow {{ if not .IsHome }}pt-20{{ end }}">
+  <main class="flex-grow {{ if not .IsHome }}pt-24{{ end }}">
     {{ block "main" . }}{{ end }}
   </main>
 
@@ -147,7 +156,7 @@
     </div>
   </footer>
 
-  <!-- Script Penanganan Drawer Kiri, Overlay Backdrop, Transparansi & Auto-Hide -->
+  <!-- Script Penanganan Drawer & Scroll Auto-Hide -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const header = document.getElementById('main-header');
@@ -155,21 +164,18 @@
       const menuClose = document.getElementById('menu-close');
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileOverlay = document.getElementById('mobile-overlay');
-      const isHome = header.getAttribute('data-is-home') === 'true';
 
       let lastScrollY = window.scrollY;
-      const scrollThreshold = 12;
+      const scrollThreshold = 10;
 
-      // Fungsi Buka Drawer Mobile (Slide-In dari Kiri)
       function openMenu() {
         mobileMenu.classList.remove('-translate-x-full');
         mobileMenu.classList.add('translate-x-0');
         mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
         mobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
-        document.body.classList.add('overflow-hidden'); // Kunci scroll halaman saat menu terbuka
+        document.body.classList.add('overflow-hidden');
       }
 
-      // Fungsi Tutup Drawer Mobile
       function closeMenu() {
         mobileMenu.classList.remove('translate-x-0');
         mobileMenu.classList.add('-translate-x-full');
@@ -178,46 +184,25 @@
         document.body.classList.remove('overflow-hidden');
       }
 
-      // Event Listeners Buka/Tutup
       if (menuToggle) menuToggle.addEventListener('click', openMenu);
       if (menuClose) menuClose.addEventListener('click', closeMenu);
       if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
-      // Logika Transparansi & Auto-Hide Header saat Scroll
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
 
-        // 1. Transparansi khusus Halaman Utama
-        if (isHome) {
-          if (currentScrollY > 60) {
-            header.classList.remove('bg-slate-900/20', 'border-white/10', 'backdrop-blur-[2px]');
-            header.classList.add('bg-slate-900/90', 'border-slate-800/80', 'backdrop-blur-md', 'shadow-md');
+        // Auto-Hide saat Scroll Down & Muncul saat Scroll Up
+        if (mobileMenu.classList.contains('translate-x-0')) return;
+
+        const diff = Math.abs(currentScrollY - lastScrollY);
+
+        if (diff >= scrollThreshold) {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            header.style.transform = 'translateY(-120%)';
           } else {
-            header.classList.add('bg-slate-900/20', 'border-white/10', 'backdrop-blur-[2px]');
-            header.classList.remove('bg-slate-900/90', 'border-slate-800/80', 'backdrop-blur-md', 'shadow-md');
+            header.style.transform = 'translateY(0)';
           }
-        }
-
-        // 2. Auto-Hide saat Scroll Down & Muncul saat Scroll Up (Khusus Mode Mobile)
-        if (window.innerWidth < 768) {
-          // Jangan sembunyikan jika menu drawer sedang terbuka
-          if (mobileMenu.classList.contains('translate-x-0')) return;
-
-          const diff = Math.abs(currentScrollY - lastScrollY);
-
-          if (diff >= scrollThreshold) {
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-              // Scroll ke Bawah -> Sembunyikan Header
-              header.style.transform = 'translateY(-100%)';
-            } else {
-              // Scroll ke Atas -> Munculkan Header Kembali
-              header.style.transform = 'translateY(0)';
-            }
-            lastScrollY = currentScrollY;
-          }
-        } else {
-          // Desktop selalu tampilkan penuh
-          header.style.transform = 'translateY(0)';
+          lastScrollY = currentScrollY;
         }
       }, { passive: true });
     });
