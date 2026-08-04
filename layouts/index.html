@@ -1,89 +1,90 @@
 {{ define "main" }}
 
-<!-- 1. Hero Section (Enhanced Cinematic Center-Aligned) -->
+<!-- 1. Hero Section (Natural Editorial Style) -->
 <section
   class="relative min-h-svh flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-6 lg:px-12 overflow-hidden border-b border-slate-800"
   style="
     background-image: url(&quot;/images/uploads/bukit-karangsambung.jpeg&quot;);
   "
 >
-  <!-- Overlay Gelap dengan Gradasi Halus di Atas & Bawah -->
-  <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px]"></div>
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-slate-950/90 pointer-events-none"
-  ></div>
+  <!-- Overlay Gelap Natural (Tanpa Blur Berlebihan) -->
+  <div class="absolute inset-0 bg-slate-950/70"></div>
 
   <!-- Konten Utama Hero -->
   <div
     class="relative max-w-4xl mx-auto text-center space-y-6 z-10 my-auto pt-24 pb-12 w-full flex flex-col items-center"
   >
-    <!-- Floating Tag Kategori (Matching dengan Floating Navbar) -->
+    <!-- Tag Kategori Minimalis & Solid -->
     <div
-      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/60 border border-emerald-500/30 backdrop-blur-md shadow-lg shadow-emerald-950/20"
+      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 backdrop-blur-xs"
     >
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
       <span
-        class="text-[11px] uppercase tracking-[0.2em] text-emerald-300 font-semibold"
+        class="text-[11px] uppercase tracking-[0.2em] text-emerald-400 font-semibold"
       >
         Cagar Alam Geologi Kebumen
       </span>
     </div>
 
-    <!-- Judul Utama dengan Sentuhan Gradient Aksen -->
+    <!-- Judul Utama Elegan dengan Typography Serif Asli -->
     <h1
-      class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] tracking-tight text-slate-100"
+      class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.18] tracking-tight text-white"
     >
       Singkapan Dasar Samudera Purba
-      <span
-        class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-200 bg-clip-text text-transparent font-medium"
-        >Karangsambung</span
-      >
+      <span class="text-emerald-400 font-serif italic">Karangsambung</span>
     </h1>
 
-    <!-- Deskripsi Singkat yang Lebih Compact & Proposional -->
+    <!-- Deskripsi Singkat yang Jelas & Nyaman Dibaca -->
     <p
-      class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light text-balance"
+      class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light"
     >
       Situs laboratorium alam geologi terkemuka di Indonesia. Menyingkap
       keanekaragaman batuan metamorf, sedimen, dan beku dari proses subduksi
       ratusan juta tahun lalu.
     </p>
 
-    <!-- Group Tombol CTA dengan Glowing Shadow -->
+    <!-- Tombol CTA dengan Warna Alam Solid (Bebas Glow Neon) -->
     <div
-      class="pt-4 flex flex-wrap justify-center items-center gap-3.5 text-xs uppercase tracking-wider font-semibold"
+      class="pt-2 flex flex-wrap justify-center items-center gap-3.5 text-xs uppercase tracking-wider font-semibold"
     >
       <a
         href="/geosite"
-        class="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition rounded-full shadow-lg shadow-emerald-500/25 hover:scale-105 duration-300"
+        class="px-7 py-3.5 bg-emerald-700 hover:bg-emerald-600 text-white transition rounded-full shadow-md border border-emerald-600/30"
       >
         Eksplor Geosite
       </a>
       <a
         href="/geo-trail"
-        class="px-7 py-3.5 bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-slate-200 hover:text-white transition rounded-full backdrop-blur-md hover:border-slate-600 duration-300"
+        class="px-7 py-3.5 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 hover:text-white transition rounded-full backdrop-blur-xs"
       >
         Peta Rute Wisata
       </a>
     </div>
   </div>
 
-  <!-- Petunjuk Scroll ke Bawah dengan Desain Pill -->
-  <div class="relative z-10 pb-6 flex flex-col items-center gap-2">
+  <!-- Indikator Scroll Sederhana & Organik -->
+  <div class="relative z-10 pb-6 flex flex-col items-center">
     <a
       href="#content-start"
       aria-label="Scroll Down"
-      class="group flex flex-col items-center gap-1.5 text-slate-400 hover:text-emerald-400 transition"
+      class="group flex flex-col items-center gap-2 text-slate-400 hover:text-emerald-400 transition"
     >
       <span
-        class="text-[9px] uppercase tracking-[0.2em] font-semibold text-slate-400/80 group-hover:text-emerald-400 transition"
+        class="text-[9px] uppercase tracking-[0.2em] font-medium text-slate-400"
         >Gulir ke bawah</span
       >
-      <div
-        class="w-6 h-9 rounded-full border border-slate-600/80 group-hover:border-emerald-400 flex items-start justify-center p-1.5 transition"
+      <svg
+        class="w-5 h-5 animate-bounce text-slate-400 group-hover:text-emerald-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-        <div class="w-1 h-2 bg-emerald-400 rounded-full animate-bounce"></div>
-      </div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M19 14l-7 7-7-7"
+        />
+      </svg>
     </a>
   </div>
 </section>
