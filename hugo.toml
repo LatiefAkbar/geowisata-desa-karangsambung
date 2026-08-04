@@ -1,3 +1,23 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'Geowisata desa karangsambung'
+baseURL = 'https://geowisatadesakarangsambung.my.id/'
+locale = 'id-ID'
+title = 'Geowisata Desa Karangsambung'
+description = 'Cagar Alam Geologi Karangsambung - Situs laboratorium alam geologi terkemuka di Indonesia. Menyingkap keanekaragaman batuan dari proses subduksi ratusan juta tahun lalu.'
+
+# Minify output HTML/CSS/JS at build time
+[minify]
+  minifyOutput = true
+
+# Pagination
+paginate = 9
+
+# Image processing defaults
+[imaging]
+  resampleFilter = 'Lanczos'
+  quality = 75
+  anchor = 'smart'
+
+# Markdown
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,17 @@
+{
+  "name": "geowisata-desa-karangsambung",
+  "version": "1.0.0",
+  "description": "Website Geowisata Desa Karangsambung - Hugo + Tailwind CSS v4",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --minify",
+    "dev:css": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.1.11",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.1.11"
+  }
+}

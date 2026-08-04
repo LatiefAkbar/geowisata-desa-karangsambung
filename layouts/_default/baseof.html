@@ -7,6 +7,24 @@
       {{ if .IsHome }}{{ .Site.Title }} — Cagar Alam Geologi{{ else }}{{ .Title
       }} | {{ .Site.Title }}{{ end }}
     </title>
+    <meta
+      name="description"
+      content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description | default .Site.Title }}{{ end }}"
+    />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
+    <meta
+      property="og:description"
+      content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Title }}{{ end }}"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta
+      property="og:image"
+      content="{{ .Site.BaseURL }}images/uploads/bukit-karangsambung.jpeg"
+    />
 
     <!-- Font Google: Merriweather & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,16 +41,13 @@
       type="image/jpeg"
     />
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
-    <style>
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-      }
-      .font-serif {
-        font-family: "Merriweather", serif;
-      }
-    </style>
+    <!-- Compiled Tailwind CSS (minified, fingerprinted by Hugo Pipes) -->
+    {{ $css := resources.Get "css/compiled.css" | minify | fingerprint }}
+    <link
+      rel="stylesheet"
+      href="{{ $css.RelPermalink }}"
+      integrity="{{ $css.Data.Integrity }}"
+    />
   </head>
   <body
     class="bg-[#F8F9FA] text-slate-800 antialiased flex flex-col min-h-screen"

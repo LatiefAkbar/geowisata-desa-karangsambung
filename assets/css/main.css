@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merriweather", ui-serif, Georgia, serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Hide scrollbar utility for carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Carousel active highlight */
+.carousel-item.active-highlight {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+}

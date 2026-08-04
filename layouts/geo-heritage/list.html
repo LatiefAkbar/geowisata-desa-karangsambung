@@ -17,8 +17,8 @@
       <div>
         <!-- Image Frame -->
         <div class="aspect-[4/3] bg-slate-100 relative overflow-hidden">
-          {{ if .Params.foto_makro }}
-            <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+{{ if .Params.foto_makro }}
+            <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="800" height="600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           {{ else }}
             <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs font-medium">
               Spesimen Tidak Tersedia

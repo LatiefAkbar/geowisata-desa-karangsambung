@@ -39,7 +39,7 @@
       {{ if .Params.foto_makro }}
       <figure class="border border-slate-200 bg-slate-100 overflow-hidden">
         <div class="aspect-[4/3] w-full">
-          <img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+<img src="{{ .Params.foto_makro }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="800" height="600" class="w-full h-full object-cover">
         </div>
         {{ if .Params.caption_foto }}
         <figcaption class="p-2 text-[11px] text-slate-500 italic text-center border-t border-slate-200 bg-white">

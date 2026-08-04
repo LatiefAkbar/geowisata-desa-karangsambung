@@ -167,9 +167,13 @@
                 class="aspect-[4/3] w-full bg-slate-100 overflow-hidden relative"
               >
                 {{ if .Params.foto_utama }}
-                <img
+<img
                   src="{{ .Params.foto_utama }}"
                   alt="{{ .Title }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {{ else }}
@@ -506,98 +510,12 @@
   </section>
 </div>
 
-<!-- Styles & Script -->
-<style>
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .carousel-item.active-highlight {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    border-color: #10b981 !important;
-    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("carouselContainer");
-    const items = container ? container.querySelectorAll(".carousel-item") : [];
-    if (!items.length) return;
-
-    let currentIndex = 0;
-    const intervalTime = 3000;
-    let autoPlayTimer = null;
-
-    function updateHighlight(index) {
-      items.forEach((item, idx) => {
-        if (idx === index) {
-          item.classList.add("active-highlight");
-        } else {
-          item.classList.remove("active-highlight");
-        }
-      });
-
-      const activeItem = items[index];
-      if (activeItem) {
-        const scrollLeftPos =
-          activeItem.offsetLeft -
-          container.offsetLeft -
-          container.clientWidth / 2 +
-          activeItem.clientWidth / 2;
-        container.scrollTo({
-          left: scrollLeftPos,
-          behavior: "smooth",
-        });
-      }
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % items.length;
-      updateHighlight(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateHighlight(currentIndex);
-    }
-
-    function startAutoPlay() {
-      if (!autoPlayTimer) {
-        autoPlayTimer = setInterval(nextSlide, intervalTime);
-      }
-    }
-
-    function stopAutoPlay() {
-      clearInterval(autoPlayTimer);
-      autoPlayTimer = null;
-    }
-
-    document.getElementById("slideLeft").addEventListener("click", () => {
-      stopAutoPlay();
-      prevSlide();
-      startAutoPlay();
-    });
-
-    document.getElementById("slideRight").addEventListener("click", () => {
-      stopAutoPlay();
-      nextSlide();
-      startAutoPlay();
-    });
-
-    container.addEventListener("mouseenter", stopAutoPlay);
-    container.addEventListener("mouseleave", startAutoPlay);
-    container.addEventListener("touchstart", stopAutoPlay, { passive: true });
-    container.addEventListener("touchend", startAutoPlay);
-
-    updateHighlight(currentIndex);
-    startAutoPlay();
-  });
-</script>
+<!-- Carousel Script (deferred, minified by Hugo Pipes) -->
+{{ $carousel := resources.Get "js/carousel.js" | minify | fingerprint }}
+<script
+  src="{{ $carousel.RelPermalink }}"
+  integrity="{{ $carousel.Data.Integrity }}"
+  defer
+></script>
 
 {{ end }}

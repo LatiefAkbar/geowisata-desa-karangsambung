@@ -1,33 +1,54 @@
 {{ define "main" }}
 <section class="max-w-screen-2xl mx-auto px-6 py-14">
-  
   <!-- Header Section Editorial -->
   <div class="border-b border-slate-200 pb-8 mb-12">
-    <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-800">Eksplorasi Lapangan</span>
-    <h1 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mt-1">Katalog Destinasi Geosite</h1>
-    <p class="text-slate-600 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
-      Inventarisasi situs-situs geologi penting di Karangsambung, menyingkap batuan metamorf langka, sedimen laut dalam, hingga struktur lava bantal purba.
+    <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-800"
+      >Eksplorasi Lapangan</span
+    >
+    <h1 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mt-1">
+      Katalog Destinasi Geosite
+    </h1>
+    <p
+      class="text-slate-600 text-sm md:text-base mt-2 max-w-2xl leading-relaxed"
+    >
+      Inventarisasi situs-situs geologi penting di Karangsambung, menyingkap
+      batuan metamorf langka, sedimen laut dalam, hingga struktur lava bantal
+      purba.
     </p>
   </div>
 
   <!-- Grid Card Geosite (Clean Editorial) -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {{ range .Pages }}
-    <article class="rounded-2xl overflow-hidden bg-white border border-slate-200 flex flex-col justify-between group">
+    <article
+      class="rounded-2xl overflow-hidden bg-white border border-slate-200 flex flex-col justify-between group"
+    >
       <div>
         <!-- Image Frame -->
         <div class="aspect-[4/3] bg-slate-100 relative overflow-hidden">
           {{ if .Params.foto_utama }}
-            <img src="{{ .Params.foto_utama }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img
+            src="{{ .Params.foto_utama }}"
+            alt="{{ .Title }}"
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="600"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
           {{ else }}
-            <div class="w-full h-full flex items-center justify-center text-slate-400 text-xs font-medium">
-              Foto Geosite Tidak Tersedia
-            </div>
+          <div
+            class="w-full h-full flex items-center justify-center text-slate-400 text-xs font-medium"
+          >
+            Foto Geosite Tidak Tersedia
+          </div>
           {{ end }}
 
           <!-- Badge Kategori Batuan -->
           {{ if .Params.kategori_batuan }}
-          <span class="absolute top-0 left-0 bg-slate-900 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 border-b border-r border-slate-800">
+          <span
+            class="absolute top-0 left-0 bg-slate-900 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 border-b border-r border-slate-800"
+          >
             {{ .Params.kategori_batuan }}
           </span>
           {{ end }}
@@ -35,10 +56,10 @@
 
         <!-- Content -->
         <div class="p-5 space-y-2">
-          <h2 class="font-serif text-lg font-bold text-slate-900 group-hover:text-emerald-900 transition-colors leading-snug">
-            <a href="{{ .RelPermalink }}">
-              {{ .Title }}
-            </a>
+          <h2
+            class="font-serif text-lg font-bold text-slate-900 group-hover:text-emerald-900 transition-colors leading-snug"
+          >
+            <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
           </h2>
           <p class="text-slate-600 text-xs leading-relaxed line-clamp-3 pt-1">
             {{ .Summary }}
@@ -47,27 +68,54 @@
       </div>
 
       <!-- Footer Info Aksesibilitas & Link -->
-      <div class="p-5 pt-0 mt-2 flex items-center justify-between border-t border-slate-100 pt-4">
-        <span class="text-[11px] font-medium text-slate-500 flex items-center gap-1.5 truncate max-w-[160px]">
-          <svg class="w-3.5 h-3.5 text-emerald-800 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+      <div
+        class="p-5 pt-0 mt-2 flex items-center justify-between border-t border-slate-100 pt-4"
+      >
+        <span
+          class="text-[11px] font-medium text-slate-500 flex items-center gap-1.5 truncate max-w-[160px]"
+        >
+          <svg
+            class="w-3.5 h-3.5 text-emerald-800 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
           </svg>
-          <span class="truncate">{{ .Params.aksesibilitas | default "Karangsambung" }}</span>
+          <span class="truncate"
+            >{{ .Params.aksesibilitas | default "Karangsambung" }}</span
+          >
         </span>
 
-        <a href="{{ .RelPermalink }}" class="text-xs font-bold text-emerald-900 hover:underline uppercase tracking-wider flex-shrink-0">
+        <a
+          href="{{ .RelPermalink }}"
+          class="text-xs font-bold text-emerald-900 hover:underline uppercase tracking-wider flex-shrink-0"
+        >
           Selengkapnya &rarr;
         </a>
       </div>
     </article>
     {{ else }}
     <!-- State Kosong -->
-    <div class="col-span-3 py-16 text-center border border-dashed border-slate-200 bg-slate-50/50">
-      <p class="text-slate-500 text-xs font-medium">Belum ada data geosite yang ditambahkan.</p>
+    <div
+      class="col-span-3 py-16 text-center border border-dashed border-slate-200 bg-slate-50/50"
+    >
+      <p class="text-slate-500 text-xs font-medium">
+        Belum ada data geosite yang ditambahkan.
+      </p>
     </div>
     {{ end }}
   </div>
-
 </section>
 {{ end }}

@@ -39,7 +39,7 @@
       {{ if .Params.foto_paket }}
       <figure class="border border-slate-200 bg-slate-100 overflow-hidden">
         <div class="aspect-[16/9] w-full">
-          <img src="{{ .Params.foto_paket }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+<img src="{{ .Params.foto_paket }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="1200" height="675" class="w-full h-full object-cover">
         </div>
         {{ if .Params.caption_foto }}
         <figcaption class="p-2 text-[11px] text-slate-500 italic text-center border-t border-slate-200 bg-white">
