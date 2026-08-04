@@ -1,366 +1,602 @@
 {{ define "main" }}
 
-  <!-- 1. Hero Section -->
-  <section class="relative min-h-svh flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-6 lg:px-12 overflow-hidden border-b border-slate-800" style="background-image: url('/images/uploads/bukit-karangsambung.jpeg');">
-    <!-- Overlay Gelap Hero -->
-    <div class="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px]"></div>
+<!-- 1. Hero Section (Enhanced Cinematic Center-Aligned) -->
+<section
+  class="relative min-h-svh flex flex-col justify-center items-center bg-cover bg-center text-white px-4 sm:px-6 lg:px-12 overflow-hidden border-b border-slate-800"
+  style="
+    background-image: url(&quot;/images/uploads/bukit-karangsambung.jpeg&quot;);
+  "
+>
+  <!-- Overlay Gelap dengan Gradasi Halus di Atas & Bawah -->
+  <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px]"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-slate-950/90 pointer-events-none"
+  ></div>
 
-    <!-- Konten Utama Hero -->
-    <div class="relative max-w-7xl mx-auto text-center space-y-6 z-10 my-auto pt-20 pb-10 w-full">
-      <p class="text-xs uppercase tracking-[0.25em] text-emerald-400 font-semibold">
+  <!-- Konten Utama Hero -->
+  <div
+    class="relative max-w-4xl mx-auto text-center space-y-6 z-10 my-auto pt-24 pb-12 w-full flex flex-col items-center"
+  >
+    <!-- Floating Tag Kategori (Matching dengan Floating Navbar) -->
+    <div
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/60 border border-emerald-500/30 backdrop-blur-md shadow-lg shadow-emerald-950/20"
+    >
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span
+        class="text-[11px] uppercase tracking-[0.2em] text-emerald-300 font-semibold"
+      >
         Cagar Alam Geologi Kebumen
-      </p>
-
-      <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight text-slate-100">
-        Singkapan Dasar Samudera Purba Karangsambung
-      </h1>
-
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-light">
-        Situs laboratorium alam geologi terkemuka di Indonesia. Menyingkap keanekaragaman batuan metamorf, sedimen, dan beku dari proses subduksi ratusan juta tahun lalu.
-      </p>
-
-      <div class="pt-2 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider font-semibold">
-        <a href="/geosite" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white transition rounded-full shadow-lg shadow-emerald-950/30">
-          Eksplor Geosite
-        </a>
-        <a href="/geo-trail" class="px-6 py-3 bg-slate-900/80 hover:bg-slate-900 border border-slate-700 text-slate-200 transition rounded-full shadow-lg">
-          Peta Rute Wisata
-        </a>
-      </div>
+      </span>
     </div>
 
-    <!-- Petunjuk Scroll ke Bawah -->
-    <div class="relative z-10 pb-6 flex flex-col items-center gap-2">
-      <span class="text-[10px] uppercase tracking-widest text-slate-400 font-medium">Gulir ke bawah</span>
-      <a href="#content-start" aria-label="Scroll Down" class="text-slate-400 hover:text-emerald-400 transition animate-bounce p-1">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"/></svg>
+    <!-- Judul Utama dengan Sentuhan Gradient Aksen -->
+    <h1
+      class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] tracking-tight text-slate-100"
+    >
+      Singkapan Dasar Samudera Purba
+      <span
+        class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-200 bg-clip-text text-transparent font-medium"
+        >Karangsambung</span
+      >
+    </h1>
+
+    <!-- Deskripsi Singkat yang Lebih Compact & Proposional -->
+    <p
+      class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light text-balance"
+    >
+      Situs laboratorium alam geologi terkemuka di Indonesia. Menyingkap
+      keanekaragaman batuan metamorf, sedimen, dan beku dari proses subduksi
+      ratusan juta tahun lalu.
+    </p>
+
+    <!-- Group Tombol CTA dengan Glowing Shadow -->
+    <div
+      class="pt-4 flex flex-wrap justify-center items-center gap-3.5 text-xs uppercase tracking-wider font-semibold"
+    >
+      <a
+        href="/geosite"
+        class="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition rounded-full shadow-lg shadow-emerald-500/25 hover:scale-105 duration-300"
+      >
+        Eksplor Geosite
+      </a>
+      <a
+        href="/geo-trail"
+        class="px-7 py-3.5 bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/80 text-slate-200 hover:text-white transition rounded-full backdrop-blur-md hover:border-slate-600 duration-300"
+      >
+        Peta Rute Wisata
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- 2. Container Konten Bawah (Memberikan background bg-slate-50/70 agar kartu bg-white terlihat kontras) -->
-  <div id="content-start" class="bg-slate-50/80">
-
-    <!-- 2a. Main Layout: Geosite Carousel (Kiri) & Artikel Terbaru (Kanan) -->
-    <section class="max-w-screen-2xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-        
-        <!-- Kolom Kiri: Geosite Utama Carousel Auto-Play (8/12 Kolom) -->
-        <div class="lg:col-span-8 space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Eksplorasi</span>
-              <h2 class="font-serif text-xl font-bold text-slate-900">Geosite Utama</h2>
-            </div>
-            
-            <div class="flex items-center gap-2">
-              <button id="slideLeft" class="p-1.5 rounded-full bg-white border border-slate-200 hover:border-slate-800 text-slate-700 transition shadow-xs" aria-label="Slide Left">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              </button>
-              <button id="slideRight" class="p-1.5 rounded-full bg-white border border-slate-200 hover:border-slate-800 text-slate-700 transition shadow-xs" aria-label="Slide Right">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Carousel Container -->
-          <div id="carouselContainer" class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-2 px-1">
-            {{ range (where .Site.RegularPages "Type" "geosite") }}
-              <article class="rounded-2xl overflow-hidden carousel-item min-w-[240px] max-w-[240px] bg-white border border-slate-200/80 shadow-sm hover:shadow-md flex flex-col justify-between group flex-shrink-0 transition-all duration-500 opacity-60 scale-95">
-                <div>
-                  <div class="aspect-[4/3] w-full bg-slate-100 overflow-hidden relative">
-                    {{ if .Params.foto_utama }}
-                      <img src="{{ .Params.foto_utama }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    {{ else }}
-                      <div class="w-full h-full flex items-center justify-center text-slate-400 text-[10px]">Foto Tidak Tersedia</div>
-                    {{ end }}
-                    
-                    {{ if .Params.kategori_batuan }}
-                      <span class="absolute top-2 left-2 bg-slate-900/90 backdrop-blur-xs text-emerald-400 text-[9px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full border border-slate-700/50">
-                        {{ .Params.kategori_batuan }}
-                      </span>
-                    {{ end }}
-                  </div>
-
-                  <div class="p-4 space-y-1">
-                    <h3 class="font-serif text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                      <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
-                      </a>
-                    </h3>
-                    <p class="text-[11px] text-slate-500 flex items-center gap-1">
-                      <svg class="w-3 h-3 text-emerald-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                      <span class="truncate">{{ .Params.aksesibilitas | default "Karangsambung" }}</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="px-4 pb-4 pt-0">
-                  <a href="{{ .RelPermalink }}" class="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 uppercase tracking-wider block">
-                    Detail &rarr;
-                  </a>
-                </div>
-              </article>
-            {{ else }}
-              <div class="w-full p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center">
-                Belum ada data geosite yang ditambahkan.
-              </div>
-            {{ end }}
-          </div>
-        </div>
-
-        <!-- Kolom Kanan: Artikel & Edukasi Terbaru (4/12 Kolom) -->
-        <div class="lg:col-span-4 space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
-            <div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Edukasi</span>
-              <h2 class="font-serif text-xl font-bold text-slate-900">Artikel Terbaru</h2>
-            </div>
-            <a href="/artikel" class="text-[11px] font-bold text-emerald-700 hover:underline uppercase">
-              Semua
-            </a>
-          </div>
-
-          <div class="space-y-3">
-            {{ range first 3 (where .Site.RegularPages "Type" "artikel") }}
-              <a href="{{ .RelPermalink }}" class="block p-4 border border-slate-200/80 hover:border-slate-300 bg-white rounded-2xl shadow-xs hover:shadow-md transition group">
-                <span class="text-[10px] text-slate-400 uppercase tracking-wider block mb-1">
-                  {{ .Date.Format "02 Jan 2006" }}
-                </span>
-                <h3 class="font-serif text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2">
-                  {{ .Title }}
-                </h3>
-              </a>
-            {{ else }}
-              <div class="p-4 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center">
-                Belum ada artikel yang diterbitkan.
-              </div>
-            {{ end }}
-          </div>
-        </div>
-
+  <!-- Petunjuk Scroll ke Bawah dengan Desain Pill -->
+  <div class="relative z-10 pb-6 flex flex-col items-center gap-2">
+    <a
+      href="#content-start"
+      aria-label="Scroll Down"
+      class="group flex flex-col items-center gap-1.5 text-slate-400 hover:text-emerald-400 transition"
+    >
+      <span
+        class="text-[9px] uppercase tracking-[0.2em] font-semibold text-slate-400/80 group-hover:text-emerald-400 transition"
+        >Gulir ke bawah</span
+      >
+      <div
+        class="w-6 h-9 rounded-full border border-slate-600/80 group-hover:border-emerald-400 flex items-start justify-center p-1.5 transition"
+      >
+        <div class="w-1 h-2 bg-emerald-400 rounded-full animate-bounce"></div>
       </div>
-    </section>
+    </a>
+  </div>
+</section>
 
-    <!-- 3. Section Rute & Jalur Geo-Trail -->
-    <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80">
-      <div class="flex items-center justify-between border-b border-slate-200/80 pb-3 mb-6">
-        <div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Navigasi Lapangan</span>
-          <h2 class="font-serif text-xl font-bold text-slate-900">Rute & Jalur Geo-Trail</h2>
+<!-- 2. Container Konten Bawah (Memberikan background bg-slate-50/70 agar kartu bg-white terlihat kontras) -->
+<div id="content-start" class="bg-slate-50/80">
+  <!-- 2a. Main Layout: Geosite Carousel (Kiri) & Artikel Terbaru (Kanan) -->
+  <section
+    class="max-w-screen-2xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+      <!-- Kolom Kiri: Geosite Utama Carousel Auto-Play (8/12 Kolom) -->
+      <div class="lg:col-span-8 space-y-6">
+        <div
+          class="flex items-center justify-between border-b border-slate-200/80 pb-3"
+        >
+          <div>
+            <span
+              class="text-[10px] font-bold uppercase tracking-widest text-emerald-800"
+              >Eksplorasi</span
+            >
+            <h2 class="font-serif text-xl font-bold text-slate-900">
+              Geosite Utama
+            </h2>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button
+              id="slideLeft"
+              class="p-1.5 rounded-full bg-white border border-slate-200 hover:border-slate-800 text-slate-700 transition shadow-xs"
+              aria-label="Slide Left"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              id="slideRight"
+              class="p-1.5 rounded-full bg-white border border-slate-200 hover:border-slate-800 text-slate-700 transition shadow-xs"
+              aria-label="Slide Right"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <a href="/geo-trail" class="text-[11px] font-bold text-emerald-700 hover:underline uppercase">
-          Lihat Semua Jalur &rarr;
-        </a>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {{ range first 2 (where .Site.RegularPages "Type" "geo-trail") }}
-          <article class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-4">
-            <div class="space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="bg-slate-900 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                  {{ .Params.kategori_jalur | default "Geo-Trail" }}
-                </span>
-                {{ if .Params.durasi }}
-                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800">
-                  • {{ .Params.durasi }}
+        <!-- Carousel Container -->
+        <div
+          id="carouselContainer"
+          class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-2 px-1"
+        >
+          {{ range (where .Site.RegularPages "Type" "geosite") }}
+          <article
+            class="rounded-2xl overflow-hidden carousel-item min-w-[240px] max-w-[240px] bg-white border border-slate-200/80 shadow-sm hover:shadow-md flex flex-col justify-between group flex-shrink-0 transition-all duration-500 opacity-60 scale-95"
+          >
+            <div>
+              <div
+                class="aspect-[4/3] w-full bg-slate-100 overflow-hidden relative"
+              >
+                {{ if .Params.foto_utama }}
+                <img
+                  src="{{ .Params.foto_utama }}"
+                  alt="{{ .Title }}"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {{ else }}
+                <div
+                  class="w-full h-full flex items-center justify-center text-slate-400 text-[10px]"
+                >
+                  Foto Tidak Tersedia
+                </div>
+                {{ end }} {{ if .Params.kategori_batuan }}
+                <span
+                  class="absolute top-2 left-2 bg-slate-900/90 backdrop-blur-xs text-emerald-400 text-[9px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full border border-slate-700/50"
+                >
+                  {{ .Params.kategori_batuan }}
                 </span>
                 {{ end }}
               </div>
 
-              <h3 class="font-serif text-base font-bold text-slate-900 hover:text-emerald-700 transition">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </h3>
-
-              <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">
-                {{ .Summary }}
-              </p>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-[11px] text-slate-500">Kesulitan: <strong class="text-slate-800 font-semibold">{{ .Params.kesulitan | default "Sedang" }}</strong></span>
-              <a href="{{ .RelPermalink }}" class="text-[11px] font-bold text-emerald-700 uppercase hover:underline">
-                Detail Rute &rarr;
-              </a>
-            </div>
-          </article>
-        {{ else }}
-          <div class="col-span-2 p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center">
-            Belum ada rute geo-trail yang ditambahkan.
-          </div>
-        {{ end }}
-      </div>
-    </section>
-
-    <!-- 4. Section Paket & Layanan Geowisata -->
-    <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80">
-      <div class="flex items-center justify-between border-b border-slate-200/80 pb-3 mb-6">
-        <div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Layanan</span>
-          <h2 class="font-serif text-xl font-bold text-slate-900">Paket Wisata Populer</h2>
-        </div>
-        <a href="/paket-wisata" class="text-[11px] font-bold text-emerald-700 hover:underline uppercase">
-          Lihat Semua Paket &rarr;
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {{ range first 3 (where .Site.RegularPages "Type" "paket-wisata") }}
-          <article class="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between group">
-            <div class="p-6 space-y-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 block">
-                {{ .Params.kategori_paket | default "Tour" }}
-              </span>
-              <h3 class="font-serif text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </h3>
-              <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">
-                {{ .Summary }}
-              </p>
-            </div>
-
-            <div class="p-6 pt-0 border-t border-slate-100 mt-2 flex items-center justify-between pt-4">
-              <div>
-                <span class="text-[9px] text-slate-400 uppercase block">Mulai dari</span>
-                <span class="text-xs font-serif font-bold text-slate-900">{{ .Params.harga | default "Hubungi Kami" }}</span>
+              <div class="p-4 space-y-1">
+                <h3
+                  class="font-serif text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1"
+                >
+                  <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
+                </h3>
+                <p class="text-[11px] text-slate-500 flex items-center gap-1">
+                  <svg
+                    class="w-3 h-3 text-emerald-700 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <span class="truncate"
+                    >{{ .Params.aksesibilitas | default "Karangsambung" }}</span
+                  >
+                </p>
               </div>
-              <a href="{{ .RelPermalink }}" class="text-[10px] font-bold text-white bg-slate-900 group-hover:bg-emerald-700 px-3.5 py-2 rounded-full uppercase tracking-wider transition">
+            </div>
+
+            <div class="px-4 pb-4 pt-0">
+              <a
+                href="{{ .RelPermalink }}"
+                class="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 uppercase tracking-wider block"
+              >
                 Detail &rarr;
               </a>
             </div>
           </article>
-        {{ else }}
-          <div class="col-span-3 p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center">
-            Belum ada paket wisata yang diterbitkan.
-          </div>
-        {{ end }}
-      </div>
-    </section>
-
-    <!-- 5. Section Katalog Batuan Purba (Geo-Heritage) -->
-    <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div class="bg-slate-900 text-slate-200 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl">
-        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4">
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-1">Geo-Heritage</span>
-            <h2 class="font-serif text-2xl font-bold text-white">Katalog Batuan Purba</h2>
-            <p class="text-slate-400 text-xs mt-1 max-w-xl">
-              Identifikasi spesimen batuan langka Karangsambung, dari metamorfik mantel bumi hingga sedimen dasar laut dalam.
-            </p>
-          </div>
-          <a href="/geo-heritage" class="text-xs font-bold text-emerald-400 hover:underline uppercase tracking-wider flex-shrink-0">
-            Katalog Lengkap &rarr;
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {{ range first 4 (where .Site.RegularPages "Type" "geo-heritage") }}
-            <a href="{{ .RelPermalink }}" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-2xl p-4 transition group block">
-              <span class="text-[9px] font-bold uppercase tracking-widest text-emerald-400 block mb-1">
-                {{ .Params.jenis_batuan | default "Spesimen" }}
-              </span>
-              <h3 class="font-serif text-sm font-bold text-slate-100 group-hover:text-emerald-300 transition-colors line-clamp-1">
-                {{ .Title }}
-              </h3>
-              <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">
-                📍 {{ .Params.lokasi_penemuan | default "Karangsambung" }}
-              </p>
-            </a>
           {{ else }}
-            <div class="col-span-4 py-8 text-center text-xs text-slate-500">
-              Belum ada spesimen batuan yang ditambahkan.
-            </div>
+          <div
+            class="w-full p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center"
+          >
+            Belum ada data geosite yang ditambahkan.
+          </div>
           {{ end }}
         </div>
       </div>
-    </section>
 
-  </div>
+      <!-- Kolom Kanan: Artikel & Edukasi Terbaru (4/12 Kolom) -->
+      <div class="lg:col-span-4 space-y-6">
+        <div
+          class="flex items-center justify-between border-b border-slate-200/80 pb-3"
+        >
+          <div>
+            <span
+              class="text-[10px] font-bold uppercase tracking-widest text-emerald-800"
+              >Edukasi</span
+            >
+            <h2 class="font-serif text-xl font-bold text-slate-900">
+              Artikel Terbaru
+            </h2>
+          </div>
+          <a
+            href="/artikel"
+            class="text-[11px] font-bold text-emerald-700 hover:underline uppercase"
+          >
+            Semua
+          </a>
+        </div>
 
-  <!-- Styles & Script -->
-  <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        <div class="space-y-3">
+          {{ range first 3 (where .Site.RegularPages "Type" "artikel") }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="block p-4 border border-slate-200/80 hover:border-slate-300 bg-white rounded-2xl shadow-xs hover:shadow-md transition group"
+          >
+            <span
+              class="text-[10px] text-slate-400 uppercase tracking-wider block mb-1"
+            >
+              {{ .Date.Format "02 Jan 2006" }}
+            </span>
+            <h3
+              class="font-serif text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2"
+            >
+              {{ .Title }}
+            </h3>
+          </a>
+          {{ else }}
+          <div
+            class="p-4 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center"
+          >
+            Belum ada artikel yang diterbitkan.
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .carousel-item.active-highlight {
-      opacity: 1 !important;
-      transform: scale(1) !important;
-      border-color: #10b981 !important;
-      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
-    }
-  </style>
+  <!-- 3. Section Rute & Jalur Geo-Trail -->
+  <section
+    class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80"
+  >
+    <div
+      class="flex items-center justify-between border-b border-slate-200/80 pb-3 mb-6"
+    >
+      <div>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest text-emerald-800"
+          >Navigasi Lapangan</span
+        >
+        <h2 class="font-serif text-xl font-bold text-slate-900">
+          Rute & Jalur Geo-Trail
+        </h2>
+      </div>
+      <a
+        href="/geo-trail"
+        class="text-[11px] font-bold text-emerald-700 hover:underline uppercase"
+      >
+        Lihat Semua Jalur &rarr;
+      </a>
+    </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById('carouselContainer');
-      const items = container ? container.querySelectorAll('.carousel-item') : [];
-      if (!items.length) return;
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {{ range first 2 (where .Site.RegularPages "Type" "geo-trail") }}
+      <article
+        class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-4"
+      >
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <span
+              class="bg-slate-900 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
+            >
+              {{ .Params.kategori_jalur | default "Geo-Trail" }}
+            </span>
+            {{ if .Params.durasi }}
+            <span
+              class="text-[10px] font-bold uppercase tracking-wider text-emerald-800"
+            >
+              • {{ .Params.durasi }}
+            </span>
+            {{ end }}
+          </div>
 
-      let currentIndex = 0;
-      const intervalTime = 3000;
-      let autoPlayTimer = null;
+          <h3
+            class="font-serif text-base font-bold text-slate-900 hover:text-emerald-700 transition"
+          >
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
 
-      function updateHighlight(index) {
-        items.forEach((item, idx) => {
-          if (idx === index) {
-            item.classList.add('active-highlight');
-          } else {
-            item.classList.remove('active-highlight');
-          }
+          <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">
+            {{ .Summary }}
+          </p>
+        </div>
+
+        <div
+          class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs"
+        >
+          <span class="text-[11px] text-slate-500"
+            >Kesulitan:
+            <strong class="text-slate-800 font-semibold"
+              >{{ .Params.kesulitan | default "Sedang" }}</strong
+            ></span
+          >
+          <a
+            href="{{ .RelPermalink }}"
+            class="text-[11px] font-bold text-emerald-700 uppercase hover:underline"
+          >
+            Detail Rute &rarr;
+          </a>
+        </div>
+      </article>
+      {{ else }}
+      <div
+        class="col-span-2 p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center"
+      >
+        Belum ada rute geo-trail yang ditambahkan.
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- 4. Section Paket & Layanan Geowisata -->
+  <section
+    class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80"
+  >
+    <div
+      class="flex items-center justify-between border-b border-slate-200/80 pb-3 mb-6"
+    >
+      <div>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest text-emerald-800"
+          >Layanan</span
+        >
+        <h2 class="font-serif text-xl font-bold text-slate-900">
+          Paket Wisata Populer
+        </h2>
+      </div>
+      <a
+        href="/paket-wisata"
+        class="text-[11px] font-bold text-emerald-700 hover:underline uppercase"
+      >
+        Lihat Semua Paket &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {{ range first 3 (where .Site.RegularPages "Type" "paket-wisata") }}
+      <article
+        class="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between group"
+      >
+        <div class="p-6 space-y-2">
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 block"
+          >
+            {{ .Params.kategori_paket | default "Tour" }}
+          </span>
+          <h3
+            class="font-serif text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1"
+          >
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+          <p class="text-slate-600 text-xs leading-relaxed line-clamp-2">
+            {{ .Summary }}
+          </p>
+        </div>
+
+        <div
+          class="p-6 pt-0 border-t border-slate-100 mt-2 flex items-center justify-between pt-4"
+        >
+          <div>
+            <span class="text-[9px] text-slate-400 uppercase block"
+              >Mulai dari</span
+            >
+            <span class="text-xs font-serif font-bold text-slate-900"
+              >{{ .Params.harga | default "Hubungi Kami" }}</span
+            >
+          </div>
+          <a
+            href="{{ .RelPermalink }}"
+            class="text-[10px] font-bold text-white bg-slate-900 group-hover:bg-emerald-700 px-3.5 py-2 rounded-full uppercase tracking-wider transition"
+          >
+            Detail &rarr;
+          </a>
+        </div>
+      </article>
+      {{ else }}
+      <div
+        class="col-span-3 p-6 bg-white rounded-2xl border border-slate-200 text-xs text-slate-500 text-center"
+      >
+        Belum ada paket wisata yang diterbitkan.
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- 5. Section Katalog Batuan Purba (Geo-Heritage) -->
+  <section class="max-w-[90rem] mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div
+      class="bg-slate-900 text-slate-200 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl"
+    >
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 mb-6 gap-4"
+      >
+        <div>
+          <span
+            class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-1"
+            >Geo-Heritage</span
+          >
+          <h2 class="font-serif text-2xl font-bold text-white">
+            Katalog Batuan Purba
+          </h2>
+          <p class="text-slate-400 text-xs mt-1 max-w-xl">
+            Identifikasi spesimen batuan langka Karangsambung, dari metamorfik
+            mantel bumi hingga sedimen dasar laut dalam.
+          </p>
+        </div>
+        <a
+          href="/geo-heritage"
+          class="text-xs font-bold text-emerald-400 hover:underline uppercase tracking-wider flex-shrink-0"
+        >
+          Katalog Lengkap &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {{ range first 4 (where .Site.RegularPages "Type" "geo-heritage") }}
+        <a
+          href="{{ .RelPermalink }}"
+          class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-2xl p-4 transition group block"
+        >
+          <span
+            class="text-[9px] font-bold uppercase tracking-widest text-emerald-400 block mb-1"
+          >
+            {{ .Params.jenis_batuan | default "Spesimen" }}
+          </span>
+          <h3
+            class="font-serif text-sm font-bold text-slate-100 group-hover:text-emerald-300 transition-colors line-clamp-1"
+          >
+            {{ .Title }}
+          </h3>
+          <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">
+            📍 {{ .Params.lokasi_penemuan | default "Karangsambung" }}
+          </p>
+        </a>
+        {{ else }}
+        <div class="col-span-4 py-8 text-center text-xs text-slate-500">
+          Belum ada spesimen batuan yang ditambahkan.
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Styles & Script -->
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .carousel-item.active-highlight {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("carouselContainer");
+    const items = container ? container.querySelectorAll(".carousel-item") : [];
+    if (!items.length) return;
+
+    let currentIndex = 0;
+    const intervalTime = 3000;
+    let autoPlayTimer = null;
+
+    function updateHighlight(index) {
+      items.forEach((item, idx) => {
+        if (idx === index) {
+          item.classList.add("active-highlight");
+        } else {
+          item.classList.remove("active-highlight");
+        }
+      });
+
+      const activeItem = items[index];
+      if (activeItem) {
+        const scrollLeftPos =
+          activeItem.offsetLeft -
+          container.offsetLeft -
+          container.clientWidth / 2 +
+          activeItem.clientWidth / 2;
+        container.scrollTo({
+          left: scrollLeftPos,
+          behavior: "smooth",
         });
-
-        const activeItem = items[index];
-        if (activeItem) {
-          const scrollLeftPos = activeItem.offsetLeft - container.offsetLeft - (container.clientWidth / 2) + (activeItem.clientWidth / 2);
-          container.scrollTo({
-            left: scrollLeftPos,
-            behavior: 'smooth'
-          });
-        }
       }
+    }
 
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateHighlight(currentIndex);
-      }
-
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateHighlight(currentIndex);
-      }
-
-      function startAutoPlay() {
-        if (!autoPlayTimer) {
-          autoPlayTimer = setInterval(nextSlide, intervalTime);
-        }
-      }
-
-      function stopAutoPlay() {
-        clearInterval(autoPlayTimer);
-        autoPlayTimer = null;
-      }
-
-      document.getElementById('slideLeft').addEventListener('click', () => {
-        stopAutoPlay();
-        prevSlide();
-        startAutoPlay();
-      });
-
-      document.getElementById('slideRight').addEventListener('click', () => {
-        stopAutoPlay();
-        nextSlide();
-        startAutoPlay();
-      });
-
-      container.addEventListener('mouseenter', stopAutoPlay);
-      container.addEventListener('mouseleave', startAutoPlay);
-      container.addEventListener('touchstart', stopAutoPlay, { passive: true });
-      container.addEventListener('touchend', startAutoPlay);
-
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % items.length;
       updateHighlight(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateHighlight(currentIndex);
+    }
+
+    function startAutoPlay() {
+      if (!autoPlayTimer) {
+        autoPlayTimer = setInterval(nextSlide, intervalTime);
+      }
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+
+    document.getElementById("slideLeft").addEventListener("click", () => {
+      stopAutoPlay();
+      prevSlide();
       startAutoPlay();
     });
-  </script>
+
+    document.getElementById("slideRight").addEventListener("click", () => {
+      stopAutoPlay();
+      nextSlide();
+      startAutoPlay();
+    });
+
+    container.addEventListener("mouseenter", stopAutoPlay);
+    container.addEventListener("mouseleave", startAutoPlay);
+    container.addEventListener("touchstart", stopAutoPlay, { passive: true });
+    container.addEventListener("touchend", startAutoPlay);
+
+    updateHighlight(currentIndex);
+    startAutoPlay();
+  });
+</script>
 
 {{ end }}
