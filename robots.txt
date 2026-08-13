@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://geowisatadesakarangsambung.my.id/sitemap.xml
