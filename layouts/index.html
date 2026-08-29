@@ -1,74 +1,122 @@
 {{ define "main" }}
 
-<!-- BAGIAN HERO (TIDAK DIOTAK-ATIK SAMA SEKALI) -->
+<!-- BAGIAN HERO -->
 <section
-  class="relative w-full min-h-screen flex flex-col justify-between pt-28 pb-8 px-6 md:px-12 bg-slate-950 overflow-hidden"
+  class="relative w-full min-h-screen flex flex-col justify-between pt-20 pb-4 px-6 md:pt-28 md:pb-8 md:px-12 bg-slate-950 overflow-hidden"
 >
   <div class="absolute inset-0 z-0">
     <img
-      src="/images/uploads/bukit-karangsambung.jpeg"
+      src="images/uploads/bukit-karangsambung.jpeg"
       alt="Karangsambung Landscape"
       class="w-full h-full object-cover object-center"
     />
-    <!-- 1. Overlay KIRI ke KANAN (Dipertebal ke 60%) -->
+    <!-- 1. Overlay KIRI ke KANAN -->
     <div
       class="absolute inset-0 bg-gradient-to-r from-black/90 via-slate-950/20 to-transparent"
     ></div>
 
-    <!-- 2. Overlay ATAS ke BAWAH (Dipertebal ke 45%) -->
+    <!-- 2. Overlay ATAS ke BAWAH -->
     <div
       class="absolute inset-0 bg-gradient-to-b from-black/30 via-slate-950/10 to-transparent"
     ></div>
 
-    <!-- 3. Overlay BAWAH ke ATAS (Dipertebal ke 75%) -->
+    <!-- 3. Overlay BAWAH ke ATAS -->
     <div
       class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"
     ></div>
   </div>
 
-  <div class="relative z-10 w-full my-auto py-12">
-    <div class="max-w-2xl text-left not-only:p-0 m-0">
+  <!-- Jarak vertical container dikurangi di mobile (py-4) -->
+  <div class="relative z-10 w-full my-auto py-4 md:py-12">
+    <div
+      class="w-[75%] md:w-full max-w-[260px] md:max-w-2xl text-left not-only:p-0 m-0"
+    >
+      <!-- DESAIN MOBILE: Badge Lokasi -->
+      <div
+        class="md:hidden inline-flex items-center gap-1.5 border border-emerald-500/40 bg-emerald-900/40 text-emerald-500 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase mb-3"
+      >
+        <svg
+          class="w-3 h-3"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+        Kebumen, Jawa Tengah
+      </div>
+
+      <!-- DESAIN DESKTOP: Badge Original -->
       <span
-        class="text-emerald-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3 block"
+        class="hidden md:block text-emerald-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3"
       >
         Cagar Alam Geologi Kebumen
       </span>
 
+      <!-- Margin bawah dikurangi di mobile (mb-1) -->
       <h1
-        class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-white leading-[1.15] mb-3"
+        class="font-serif text-3xl sm:text-4xl md:text-6xl font-normal text-white leading-[1.15] mb-1 md:mb-3"
       >
         Karangsambung<br />
       </h1>
+
+      <!-- DESAIN MOBILE: Subjudul (Margin mb-3) -->
       <h2
-        class="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-slate-100 leading-tight mb-4"
+        class="md:hidden font-serif text-xl font-light text-slate-100 leading-snug mb-3"
+      >
+        Jejak
+        <span class="font-normal text-emerald-500 italic">Samudra Purba</span
+        ><br />
+        <span class="font-normal text-white">yang Terangkat ke Daratan</span>
+      </h2>
+
+      <!-- DESAIN DESKTOP: Subjudul Original -->
+      <h2
+        class="hidden md:block font-serif text-3xl md:text-4xl font-light text-slate-100 leading-tight mb-4"
       >
         Jejak Samudra Purba<br />
         <span class="font-normal text-white">yang Terangkat ke Daratan</span>
       </h2>
 
+      <!-- Margin bawah paragraf dikurangi di mobile (mb-5) -->
       <p
-        class="text-slate-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl font-normal"
+        class="text-slate-300 text-sm md:text-base leading-relaxed mb-5 md:mb-8 max-w-xl md:max-w-xl max-w-sm font-normal"
       >
         Situs laboratorium alam geologi tektonik terlengkap di Indonesia.
         Menyingkap keanekaragaman batuan, fosil, dan bentang alam hasil
         perjalanan jutaan tahun.
       </p>
 
-      <div class="flex flex-wrap items-center gap-4">
+      <!-- TOMBOL: Padding vertical dikurangi sedikit di mobile (py-3) -->
+      <div
+        class="flex flex-col md:flex-row flex-wrap items-center gap-2.5 md:gap-4 w-full max-w-sm md:max-w-none"
+      >
         <a
           href="/geosite"
-          class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs md:text-sm px-6 py-3.5 rounded-full flex items-center gap-2 transition shadow-lg shadow-emerald-950"
+          class="w-full md:w-auto justify-between md:justify-start bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm px-6 py-3 md:py-3.5 rounded-xl md:rounded-full flex items-center gap-2 transition shadow-lg shadow-emerald-950"
         >
           <span>Jelajahi Geosite</span>
-          <span class="text-sm">&rarr;</span>
+          <span class="text-base md:text-sm">&rarr;</span>
         </a>
         <a
           href="/geo-trail"
-          class="border border-slate-600 hover:border-slate-400 text-white font-medium text-xs md:text-sm px-6 py-3.5 rounded-full flex items-center gap-2 transition bg-slate-900/40 backdrop-blur-sm"
+          class="w-full md:w-auto justify-between md:justify-start border border-emerald-800/80 md:border-slate-600 md:hover:border-slate-400 text-white font-medium text-sm px-6 py-3 md:py-3.5 rounded-xl md:rounded-full flex items-center gap-2 transition bg-transparent md:bg-slate-900/40 md:backdrop-blur-sm"
         >
           <span>Peta Geo-Trail</span>
+          <!-- Ikon Desktop -->
           <svg
-            class="w-4 h-4 text-slate-300"
+            class="hidden md:block w-4 h-4 text-slate-300"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -80,15 +128,120 @@
               d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
             />
           </svg>
+          <!-- Ikon Mobile -->
+          <svg
+            class="md:hidden w-5 h-5 text-slate-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            />
+          </svg>
         </a>
       </div>
     </div>
   </div>
 
+  <!-- Wrapper bottom: Jarak dikurangi (pt-3, mt-1) -->
   <div
-    class="relative z-10 w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-6 border-t border-white/10"
+    class="relative z-10 w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-3 md:gap-6 pt-3 md:pt-6 md:border-t md:border-white/10 mt-1 md:mt-0 mb-12 md:mb-0"
   >
-    <div class="flex items-center gap-3 text-xs text-slate-400">
+    <!-- DESAIN MOBILE: Glassmorphism Card (Padding dikecilkan p-3) -->
+    <div
+      class="flex md:hidden w-full bg-emerald-900/20 backdrop-blur-md border border-slate-700/50 rounded-2xl p-3 items-center justify-between max-w-sm mx-auto"
+    >
+      <div class="flex flex-col items-center gap-1.5 w-1/3">
+        <svg
+          class="w-5 h-5 text-emerald-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M21 19H3l9-15 9 15zM12 4l-4 7h8l-4-7z"
+          />
+        </svg>
+        <div
+          class="text-[10px] text-white text-center font-medium leading-tight"
+        >
+          Geosite<br />Unggulan
+        </div>
+      </div>
+      <div class="w-px h-7 bg-slate-700/50"></div>
+      <div class="flex flex-col items-center gap-1.5 w-1/3">
+        <svg
+          class="w-5 h-5 text-emerald-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+        <div
+          class="text-[10px] text-white text-center font-medium leading-tight"
+        >
+          Edukasi<br />Geologi
+        </div>
+      </div>
+      <div class="w-px h-7 bg-slate-700/50"></div>
+      <div class="flex flex-col items-center gap-1.5 w-1/3">
+        <svg
+          class="w-5 h-5 text-emerald-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+          />
+        </svg>
+        <div
+          class="text-[10px] text-white text-center font-medium leading-tight"
+        >
+          Geo-Trail<br />Jalur Wisata
+        </div>
+      </div>
+    </div>
+
+    <!-- DESAIN MOBILE: Scroll Panah -->
+    <div class="flex md:hidden flex-col items-center justify-center w-full">
+      <span
+        class="text-[9px] font-bold tracking-widest uppercase text-emerald-800 mb-1"
+        >Gulir ke bawah</span
+      >
+      <svg
+        class="w-4 h-4 text-slate-400 animate-bounce"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
+    </div>
+
+    <!-- DESAIN DESKTOP: Scroll Indikator Original -->
+    <div class="hidden md:flex items-center gap-3 text-xs text-slate-400">
       <div
         class="w-4 h-7 border-2 border-slate-400/60 rounded-full flex justify-center pt-1"
       >
@@ -97,13 +250,14 @@
       <span class="tracking-wider uppercase text-[10px]">Gulir ke bawah</span>
     </div>
 
-    <div class="flex items-center gap-2">
+    <!-- DESAIN DESKTOP: 3 Foto Bulat Original -->
+    <div class="hidden md:flex items-center gap-2">
       <div class="flex items-center gap-1">
         <div
           class="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden"
         >
           <img
-            src="/images/uploads/bukit-karangsambung.jpeg"
+            src="/uploads/bukit-karangsambung.jpeg"
             alt="Batuan"
             class="w-full h-full object-cover"
           />
@@ -112,7 +266,7 @@
           class="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden"
         >
           <img
-            src="/images/uploads/bukit-karangsambung.jpeg"
+            src="/uploads/bukit-karangsambung.jpeg"
             alt="Fosil"
             class="w-full h-full object-cover"
           />
@@ -121,7 +275,7 @@
           class="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden"
         >
           <img
-            src="/images/uploads/bukit-karangsambung.jpeg"
+            src="/uploads/bukit-karangsambung.jpeg"
             alt="Bentang Alam"
             class="w-full h-full object-cover"
           />
@@ -135,9 +289,24 @@
       </div>
     </div>
   </div>
+  <div
+    class="md:hidden absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 translate-y-[1px]"
+  >
+    <svg
+      class="block w-full h-8 md:h-12 lg:h-16 text-[#f8fafc]"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M1200 120L0 120 0 80.5C22.6 86.8 45.3 93.2 68 93.5 90.7 93.8 113.3 87.9 136 82.7 158.7 77.4 181.3 72.8 204 76.2 226.7 79.5 249.3 90.7 272 95.8 294.7 101 317.3 100.1 340 94.7 362.7 89.4 385.3 79.7 408 77.5 430.7 75.3 453.3 80.7 476 82.2 498.7 83.8 521.3 81.6 544 76.5 566.7 71.5 589.3 63.6 612 60.5 634.7 57.3 657.3 58.8 680 62.2 702.7 65.5 725.3 70.8 748 69.8 770.7 68.8 793.3 61.5 816 57 838.7 52.4 861.3 50.7 884 52.8 906.7 54.8 929.3 60.7 952 64.7 974.7 68.6 997.3 70.4 1020 68 1042.7 65.6 1065.3 59 1088 56.2 1110.7 53.3 1133.3 54.2 1156 55.7 1178.7 57.2 1200 59.2 1200 59.2Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  </div>
 </section>
 
-<!-- BAGIAN KONTEN (SUDAH DISESUAIKAN PADDING DAN WARNANYA) -->
+<!-- BAGIAN KONTEN (TIDAK DIOTAK-ATIK) -->
 <div id="content-start" class="w-full bg-transparent">
   <section
     class="w-full pt-16 pb-12 px-6 md:px-12 border-b border-slate-200/80"
@@ -157,7 +326,7 @@
             </h2>
           </div>
 
-          <!-- Tombol Navigasi Carousel Dikembalikan -->
+          <!-- Tombol Navigasi Carousel -->
           <div class="flex items-center gap-2">
             <button
               id="slideLeft"
@@ -204,7 +373,6 @@
           id="carouselContainer"
           class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-2 px-1"
         >
-          <!-- Looping Hugo dibatasi hanya 3 teratas -->
           {{ range first 3 (where .Site.RegularPages "Type" "geosite") }}
           <article
             class="rounded-3xl overflow-hidden carousel-item min-w-[240px] max-w-[240px] bg-white border border-slate-200/80 shadow-sm hover:shadow-md flex flex-col justify-between group flex-shrink-0 transition-all duration-500 opacity-60 scale-95"
