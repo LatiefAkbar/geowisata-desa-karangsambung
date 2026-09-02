@@ -1,14 +1,15 @@
 ---
-title: "Batuan Serpentinit"
+title: Batuan Serpentinit
 date: 2026-08-02T23:00:00+07:00
 draft: false
-jenis_batuan: "Metamorf"
-warna: "Hijau Gelap / Hijau Kehitaman"
-mineral_utama: "Serpentin, Olivin, Piroksen"
-lokasi_penemuan: "Pancuran, Karangsambung"
-foto_makro: "/images/uploads/serpentinit-makro.jpg"
-caption_foto: "Spesimen batuan serpentinit dengan permukaan berkilau serat serat halus."
-description: "Batuan metamorfik hasil ubahan hidrothermal dari batuan peridotit mantel bumi yang terangkat akibat interaksi lempeng samudera."
+jenis_batuan: Metamorf
+warna: Hijau Gelap / Hijau Kehitaman
+mineral_utama: Serpentin, Olivin, Piroksen
+lokasi_penemuan: Pancuran, Karangsambung
+foto_makro: /images/uploads/depositphotos_108779260-stock-photo-set-of-various-serpentine-natural.jpg
+caption_foto: Spesimen batuan serpentinit dengan permukaan berkilau serat serat halus.
+description: Batuan metamorfik hasil ubahan hidrothermal dari batuan peridotit
+  mantel bumi yang terangkat akibat interaksi lempeng samudera.
 ---
 
 Serpentinit adalah batuan metamorfik khas yang menjadi penanda penting proses geodinamika kerak bumi. Batuan ini terbentuk dari ubahan batuan peridotit (batuan penyusun mantel bumi) yang mengalami proses hidrasi atau kontak dengan air laut bertekanan tinggi pada temperatur sedang.
