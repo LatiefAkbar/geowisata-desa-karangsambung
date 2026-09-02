@@ -6,7 +6,7 @@ jenis_batuan: Sedimen Laut Dalam
 warna: Merah Hati / Merah Hati Pekat
 mineral_utama: Kuarsa Mikrokristalin (SiO2), Radiolaria
 lokasi_penemuan: Kali Muncar, Karangsambung
-foto_makro: /images/uploads/5-batuan-yang-menjadi-bukti-sejarah-geologi-di-karangsambung.jpg
+foto_makro: /images/uploads/flint.jpg
 caption_foto: Spesimen batu rijang merah endapan laut dalam di Kali Muncar.
 description: Batuan sedimen silika endapan laut dalam yang tersusun dari
   cangkang mikrofosil radiolaria dan mengendap di kedalaman ribuan meter.
