@@ -4,7 +4,7 @@ date: 2026-08-02T22:20:00.000+07:00
 draft: false
 kategori: Sejarah Bumi
 penulis: Tim Redaksi Geowisata
-foto_sampul: https://www.google.com/search?q=https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05&authuser=1
+foto_sampul: /images/uploads/air-terjun-sindaro-adalah-air-terjun-dengan-ketinggian-sekira-30-meter-yang-terletak-di-cagar-alam-nasional-geologi-karangsambung-1-.jpg
 description: Menelusuri kronologi pembentukan pulau Jawa bagian selatan melalui
   kacamata stratigrafi dan tektonik lempeng di Karangsambung.
 tags:
