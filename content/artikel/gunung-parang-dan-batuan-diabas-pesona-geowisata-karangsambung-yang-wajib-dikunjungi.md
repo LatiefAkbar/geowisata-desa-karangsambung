@@ -15,7 +15,7 @@ description: Gunung Parang adalah salah satu titik paling menarik di kawasan
 tags:
   - geowisatakarangsambung
 ---
-Bagi pecinta wisata alam sekaligus edukasi, **Gunung Parang** adalah salah satu titik paling menarik di kawasan **geowisata Karangsambung**, Kebumen, Jawa Tengah. Bukit ini bukan gunung berapi aktif, melainkan hasil peristiwa intrusi magma jutaan tahun silam—magma yang mendesak ke arah permukaan bumi namun keburu membeku sebelum sempat meletus menjadi gunung api. Seiring waktu, lapisan tanah di atasnya tererosi dan menyingkap struktur batuan berbentuk tiang-tiang berkekar kolom yang khas.
+Bagi pecinta wisata alam sekaligus edukasi, **Gunung Parang** adalah salah satu titik paling menarik di kawasan **[geowisata Karangsambung](geowisatadesakarangsambung.my.id)**, Kebumen, Jawa Tengah. Bukit ini bukan gunung berapi aktif, melainkan hasil peristiwa intrusi magma jutaan tahun silam—magma yang mendesak ke arah permukaan bumi namun keburu membeku sebelum sempat meletus menjadi gunung api. Seiring waktu, lapisan tanah di atasnya tererosi dan menyingkap struktur batuan berbentuk tiang-tiang berkekar kolom yang khas.
 
 ## Mengenal Batuan Diabas di Gunung Parang
 
