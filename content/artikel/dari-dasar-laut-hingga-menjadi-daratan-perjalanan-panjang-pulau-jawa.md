@@ -3,7 +3,7 @@ title: "Dari Dasar Laut hingga Menjadi Daratan: Perjalanan Panjang Pulau Jawa"
 date: 2026-08-02T22:20:00.000+07:00
 draft: false
 kategori: Sejarah Bumi
-penulis: Tim Redaksi Geowisata
+penulis: Latif Akbar Maulana
 foto_sampul: /images/uploads/air-terjun-sindaro-adalah-air-terjun-dengan-ketinggian-sekira-30-meter-yang-terletak-di-cagar-alam-nasional-geologi-karangsambung-1-.jpg
 description: Menelusuri berbagai kronologi pembentukan pulau Jawa bagian selatan
   melalui kacamata stratigrafi dan tektonik lempeng di Karangsambung.
