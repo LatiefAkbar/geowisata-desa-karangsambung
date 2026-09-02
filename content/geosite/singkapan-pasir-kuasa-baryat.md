@@ -1,16 +1,18 @@
 ---
 title: Singkapan Pasir Kuarsa Bayat
-description: Endapan batuan sedimen berbutir kasar yang kaya akan kandungan mineral silika dan kuarsa murni.
+date: 2026-09-02T07:19:00.000+07:00
+draft: false
 kategori_batuan: Batuan Sedimen Klastik
 umur_geologi: Eosen (~35 - 50 Juta Tahun)
 koordinat: -7.7512, 110.6621
 aksesibilitas: Mudah (Mobil, Motor)
+foto_utama: /images/uploads/img_8242-muhammad-desta-renantya-putra-225x300.jpeg
+description: Endapan batuan sedimen berbutir kasar yang kaya akan kandungan
+  mineral silika dan kuarsa murni.
 fasilitas:
   - Jalan Desa Beraspal
   - Area Parkir Terbatas
   - Warung Warga Sekitar
-foto_utama: https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9
-draft: false
 type: geosite
 ---
 
